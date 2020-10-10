@@ -1,0 +1,82 @@
+.icon {
+  height: 32px;
+  width: 32px;
+  background-image: url('../../../assets/images/loading.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon.small {
+  height: 20px;
+  width: 20px;
+}
+
+.icon.large {
+  height: 64px;
+  width: 64px;
+}
+
+.icon.space {
+	margin-right: 10px;
+}
+
+.icon.search {
+  background-image: url('../../../assets/images/icon-search.svg');
+}
+
+.icon.whatsapp {
+  background-image: url('../../../assets/images/icon-whatsapp.svg');
+}
+
+.icon.facebook {
+  background-image: url('../../../assets/images/icon-facebook.svg');
+}
+
+.icon.twitter {
+  background-image: url('../../../assets/images/icon-twitter.svg');
+}
+
+.icon.linkedin {
+  background-image: url('../../../assets/images/icon-linkedin.svg');
+}
+
+.icon.interactivity {
+  background-image: url('../../../assets/images/icon-interactivity.svg');
+}
+
+.icon.micropayment {
+  background-image: url('../../../assets/images/icon-micropayment.svg');
+}
+
+.icon.microads {
+  background-image: url('../../../assets/images/icon-microads.svg');
+}
+
+.icon.big-data {
+  background-image: url('../../../assets/images/icon-big-data.svg');
+}
+
+.icon.innovation {
+  background-image: url('../../../assets/images/icon-innovation.svg');
+}
+
+.icon.support {
+  background-image: url('../../../assets/images/icon-support.svg');
+}
+
+.icon.learn {
+  background-image: url('../../../assets/images/icon-learn.svg');
+}
+
+.icon.assimilate {
+  background-image: url('../../../assets/images/icon-assimilate.svg');
+}
+
+.icon.apply-automatically {
+  background-image: url('../../../assets/images/icon-apply-automatically.svg');
+}
+
+.icon.email {
+  background-image: url('../../../assets/images/icon-email.svg');
+}

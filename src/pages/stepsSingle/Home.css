@@ -1,0 +1,142 @@
+.hero-wrapper { 
+  min-height: 100vh;
+  padding: 50px 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/images/bg-image-left.svg');
+  background-position: -200px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.hero-wrapper h1 {
+  color: #222222;/*#60347B;*/
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.hero-wrapper h2 {
+  font-size: 36px;
+  color: #795ee6;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+
+.hero-wrapper h3 {
+  font-size: 18px;
+  color: #a5a5a5;
+}
+
+
+.hero-wrapper .title {
+  border: 1px solid green;
+}
+
+.image-brain-check {
+  display: block;
+  height: 30vh;
+  width: 100%;
+  background-image: url('../../assets/images/image-brain-check.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-how-think {
+  display: block;
+  height: 300px;
+  width: 100%;
+  background-image: url('../../assets/images/image-how-think.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-brain-automatic {
+  display: block;
+  height: 300px;
+  width: 100%;
+  background-image: url('../../assets/images/image-brain-automatic.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-learn-desktop {
+  display: block;
+  height: 300px;
+  width: 100%;
+  background-image: url('../../assets/images/image-learn-desktop.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-brain-cycle {
+  display: block;
+  height: 100px;
+  width: 100%;
+  background-image: url('../../assets/images/image-brain-cycle.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-assimilation-normal {
+  display: block;
+  height: 100px;
+  width: 100%;
+  background-image: url('../../assets/images/image-assimilation-normal.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-neo-assimilation {
+  display: block;
+  height: 100px;
+  width: 100%;
+  background-image: url('../../assets/images/image-neo-assimilation.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .hero-wrapper {
+    padding-top: 0;
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .hero-wrapper .content {
+    text-align: left;
+    padding-left: 80px;
+  }
+
+  .hero-wrapper h1 {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-wrapper h2 {
+    font-size: 30px;
+    font-weight: 300;
+  }
+
+  .image-brain-check {
+    height: 80vh;
+    background-position: center;
+  }
+
+  .image-assimilation-normal, .image-neo-assimilation {
+    height: 250px;
+  }
+}

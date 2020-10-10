@@ -1,0 +1,66 @@
+.btn {
+	background-color: #F3F3F3;
+	border: 1px solid #e4e4e4;
+	color: #222222;
+	height: 42px;
+	padding: 0 20px;
+	font-size: 14px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+	border-radius: 30px;
+	margin-right: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+	max-width: 350px;
+}
+
+.btn.primary {
+  color: #ffffff;
+	background-color: #47c36d;
+	border: 1px solid #29a080;
+}
+
+.btn.secondary {
+  color: #ffffff;
+  background-color: #9130BF;
+  border: 1px solid #682e9c;
+}
+
+.btn.large {
+	height: auto;
+	padding: 10px 40px;
+	font-size: 20px;
+}
+
+.btn.small {
+	height: 24px;
+	padding: 0 20px;
+	font-size: 12px;
+}
+
+.btn.whatsapp {
+	color: #ffffff;
+	background-color: #47c36d;
+	border: 1px solid #29a080;
+}
+
+.btn.facebook {
+	color: #ffffff;
+	background-color: #4D55AF;
+	border: 1px solid #4D55AF;
+}
+
+.btn.twitter {
+	color: #ffffff;
+	background-color: #00A8EE;
+	border: 1px solid #00A8EE;
+}
+
+.btn.linkedin {
+	color: #ffffff;
+	background-color: #006CC6;
+	border: 1px solid #006CC6;
+}
