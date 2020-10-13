@@ -1,14 +1,43 @@
 /* Pages */
 //import Error404 from '../pages/error404/Error404';
+/* Public */
 import Home from '../pages/home/Home';
-import WorkshopWebDeveloper from '../pages/workshop-web-developer/WorkshopWebDeveloper';
+import SignIn from '../pages/auth/singIn/SignIn';
+import Login from '../pages/auth/login/Login';
 import Terms from '../pages/terms/Terms';
-import Login from '../pages/login/Login';
+
+/* Private */
+import LinksOverview from '../pages/dashboard/links/overview/Overview';
+import CreateLink from '../pages/dashboard/links/createLink/CreateLink';
 
 /* Layouts */
 import FullLayout from '../layouts/fullLayout/FullLayout';
 
 export const routes = [
+  {
+    id: 2,
+    exact: true,
+    path: '/dashboard/create-link',
+    Component: CreateLink,
+    Layout: FullLayout,
+    Access: 'Public',
+  },
+  {
+    id: 2,
+    exact: true,
+    path: '/dashboard/',
+    Component: LinksOverview,
+    Layout: FullLayout,
+    Access: 'Public',
+  },
+  {
+    id: 2,
+    exact: true,
+    path: '/sign-in',
+    Component: SignIn,
+    Layout: FullLayout,
+    Access: 'Public',
+  },
   {
     id: 5,
     exact: true,
@@ -22,22 +51,6 @@ export const routes = [
     exact: true,
     path: '/terms',
     Component: Terms,
-    Layout: FullLayout,
-    Access: 'Public',
-  },
-  {
-    id: 3,
-    exact: true,
-    path: '/workshop',
-    Component: WorkshopWebDeveloper,
-    Layout: FullLayout,
-    Access: 'Public',
-  },
-  {
-    id: 2,
-    exact: true,
-    path: '/workshop-web-developer',
-    Component: WorkshopWebDeveloper,
     Layout: FullLayout,
     Access: 'Public',
   },

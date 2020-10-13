@@ -1,12 +1,9 @@
-.container {
+.container, .container-fluid {
   /*max-width: 100%;*/
-  box-sizing: border-box;
-  padding: 60px 20px 0 20px;
-  text-align: center;
+  min-height: 90vh;
 }
 
 .section {
-  text-align: center;
   padding: 100px 0;
 }
 
