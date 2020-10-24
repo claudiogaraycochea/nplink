@@ -1,15 +1,12 @@
 import React, { Component }from "react";
 import {
-  Button,
   Section,
   H1,
-  Notification,
 } from '../../../../ui/UI';
 import { 
   Container,
   Row,
   Col,
-  Form,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Overview.css';
@@ -19,8 +16,6 @@ class Overview extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-      firstname: '',
-      lastname: '',
       validated: false,
       formSent: false,
 		};
@@ -29,7 +24,7 @@ class Overview extends Component {
   }
 
   async sendSubscribe() {
-		const { 
+		/*const { 
       firstname,
       lastname,
     } = this.state;
@@ -38,6 +33,8 @@ class Overview extends Component {
       "firtname": firstname,
       "lastname": lastname,
     };
+    */
+    const data = {};
     const endpoint = '/subscriptor';
 		try {
 			await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
@@ -67,7 +64,6 @@ class Overview extends Component {
   }
 
   render() {
-    const { firstname, lastname, validated } = this.state;
     return (
       <Container fluid>
         <Section className='main-wrapper'>
@@ -88,19 +84,29 @@ class Overview extends Component {
                   <Col>
                     <div className='table'>
                       <Row className='table-item'>
-                        <Col>
+                        <Col xs={6} lg={6}>
                           Support constant
                         </Col>
                         <Col>
                           1240 Clicks
                         </Col>
+                        <Col className='d-flex justify-content-end'>
+                          <Link to='/dashboard/edit-link'>
+                            Edit
+                          </Link>
+                        </Col>
                       </Row>
                       <Row className='table-item'>
-                        <Col>
+                        <Col xs={6} lg={6}>
                           Follow Previus Link
                         </Col>
                         <Col>
                           1240 Clicks
+                        </Col>
+                        <Col className='d-flex justify-content-end'>
+                          <Link to='/dashboard/edit-link'>
+                            Edit
+                          </Link>
                         </Col>
                       </Row>
                     </div>

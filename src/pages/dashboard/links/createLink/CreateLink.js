@@ -3,7 +3,6 @@ import {
   Button,
   Section,
   H1,
-  Notification,
 } from '../../../../ui/UI';
 import { 
   Container,
@@ -11,9 +10,10 @@ import {
   Col,
   Form,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import Toggle from 'react-toggle';
 import './CreateLink.css';
 import { request, ContentTypes } from '../../../../libs/request';
+import ButtonNextPlay from '../../../../components/buttonNextPlay/ButtonNextPlay';
 
 class CreateLink extends Component {
   constructor(props) {
@@ -25,9 +25,11 @@ class CreateLink extends Component {
       lastname: '',
       validated: false,
       formSent: false,
+      deviceSelected: 'desktop',
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBtnToggleChange = this.handleBtnToggleChange.bind(this);
   }
 
   async sendSubscribe() {
@@ -68,13 +70,20 @@ class CreateLink extends Component {
 		this.setState({ [name]: value });
   }
 
+	handleBtnToggleChange() {
+    const { deviceSelected } = this.state;
+    const device = (deviceSelected === 'mobile') ? 'desktop' : 'mobile';
+    console.log('handleBtnToggleChange: device: ', device);
+		this.setState({ deviceSelected: device });
+  }
+
   render() {
     const {
       title,
       description,
       firstname,
-      lastname,
-      validated
+      validated,
+      deviceSelected,
     } = this.state;
     return (
       <Container fluid>
@@ -156,6 +165,26 @@ class CreateLink extends Component {
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>
+                        <Form.Label>How look in?</Form.Label>
+                        <Form.Group as={Col} className='d-flex align-items-center'>
+                          <div className='device-selector-wrapper'>
+                            <div className='item'>
+                              Desktop
+                            </div>
+                            <div className='item'>
+                              <Toggle
+                                defaultChecked={(deviceSelected==='mobile') ? true : false}
+                                icons={false}
+                                onChange={this.handleBtnToggleChange}
+                              />
+                            </div>
+                            <div className='item'>
+                              Mobile
+                            </div>
+                          </div>
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
                         <Col>
                           <Button className='secondary' type='submit'>Accept</Button>
                         </Col>
@@ -199,9 +228,7 @@ class CreateLink extends Component {
             </Col>
           </Row>
         </Section>
-        <div className='qr-code-wrapper'>
-          QR Contáctanos desde tu movil
-        </div>
+        <ButtonNextPlay device={deviceSelected} />
       </Container>
     );
   }

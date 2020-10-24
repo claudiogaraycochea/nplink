@@ -9,11 +9,20 @@ import Terms from '../pages/terms/Terms';
 /* Private */
 import LinksOverview from '../pages/dashboard/links/overview/Overview';
 import CreateLink from '../pages/dashboard/links/createLink/CreateLink';
+import EditLink from '../pages/dashboard/links/editLink/EditLink';
 
 /* Layouts */
 import FullLayout from '../layouts/fullLayout/FullLayout';
 
 export const routes = [
+  {
+    id: 2,
+    exact: true,
+    path: '/dashboard/edit-link',
+    Component: EditLink,
+    Layout: FullLayout,
+    Access: 'Public',
+  },
   {
     id: 2,
     exact: true,

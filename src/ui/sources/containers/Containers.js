@@ -101,3 +101,24 @@ export const BoxCircle = (props) => {
     </div>
   );
 };
+
+export const BoxIcon = (props) => {
+  const {
+    icon,
+    children,
+  } = props;
+  const styles = {
+    backgroundImage: `url(${icon})`,
+  };
+  return (
+    <div
+      className={`box-icon`}
+    >
+      <div
+        className='icon'
+        style={styles}
+      />
+      {children}
+    </div>
+  );
+};

@@ -3,20 +3,22 @@ import {
   Button,
   Section,
   H1,
-} from '../../../ui/UI';
+} from '../../../../ui/UI';
 import { 
   Container,
   Row,
   Col,
   Form,
 } from 'react-bootstrap';
-import './SignIn.css';
-import { request, ContentTypes } from '../../../libs/request';
+import './EditLink.css';
+import { request, ContentTypes } from '../../../../libs/request';
 
-class SignIn extends Component {
+class EditLink extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
+      title: 'Contáctanos',
+      description: 'Llamanos de lunes a viernes de 10hs a 20hs.',
       firstname: '',
       lastname: '',
       validated: false,
@@ -65,7 +67,12 @@ class SignIn extends Component {
   }
 
   render() {
-    const { firstname, lastname, validated } = this.state;
+    const {
+      title,
+      description,
+      firstname,
+      validated
+    } = this.state;
     return (
       <Container fluid>
         <Section className='main-wrapper'>
@@ -74,7 +81,7 @@ class SignIn extends Component {
               <div className='content'>
                 <Row>
                   <Col>
-                    <H1>Sign In</H1>
+                    <H1>Edit Link</H1>
                   </Col>
                 </Row>
                 <Row>
@@ -82,7 +89,7 @@ class SignIn extends Component {
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Firstname</Form.Label>
+                          <Form.Label>Link Name</Form.Label>
                           <Form.Control
                             type='text'
                             placeholder=''
@@ -92,13 +99,15 @@ class SignIn extends Component {
                             onChange={this.handleInputChange}
                           />
                         </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Lastname</Form.Label>
+                          <Form.Label>Title</Form.Label>
                           <Form.Control
                             type='text'
                             placeholder=''
-                            name='lastname'
-                            value={lastname}
+                            name='title'
+                            value={title}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -106,12 +115,12 @@ class SignIn extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Email</Form.Label>
+                          <Form.Label>Description</Form.Label>
                           <Form.Control
-                            type='email'
+                            type='text'
                             placeholder=''
-                            name='lastname'
-                            value={lastname}
+                            name='description'
+                            value={description}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -119,40 +128,28 @@ class SignIn extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Password</Form.Label>
+                          <Form.Label>Whatsapp</Form.Label>
                           <Form.Control
-                            type='password'
+                            type='text'
                             placeholder=''
-                            name='lastname'
-                            value={lastname}
-                            required
-                            onChange={this.handleInputChange}
-                          />
-                        </Form.Group>
-                        <Form.Group as={Col}>
-                          <Form.Label>Repeat Password</Form.Label>
-                          <Form.Control
-                            type='password'
-                            placeholder=''
-                            name='lastname'
-                            value={lastname}
+                            name='firstname'
+                            value={firstname}
                             required
                             onChange={this.handleInputChange}
                           />
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>
-                        <Form.Group as={Row}>
-                          <Col>
-                            <Form.Check
-                              type="checkbox"
-                              label="Aceptar Términos y condiciones"
-                              value="true"
-                              name="terms"
-                              required
-                              onChange={(event) => this.handleInputChange(event)}
-                            />
-                          </Col>
+                        <Form.Group as={Col}>
+                          <Form.Label>Telephone</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder=''
+                            name='firstname'
+                            value={firstname}
+                            required
+                            onChange={this.handleInputChange}
+                          />
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>
@@ -166,7 +163,36 @@ class SignIn extends Component {
               </div>
             </Col>
             <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
-              <i className='image-hero-home'/>
+              <div className='mobile-preview'>
+                <div className='mobile-preview-content'>
+                  <Row>
+                    <Col>
+                      <div className='title'>{title}</div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      {description}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button
+                        className='primary large'
+                      >Whatsapp</Button>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button 
+                        className='secondary large'
+                      >
+                        Call Now
+                      </Button>
+                    </Col>
+                  </Row>                  
+                </div>
+              </div>
             </Col>
           </Row>
         </Section>
@@ -175,4 +201,4 @@ class SignIn extends Component {
   }
 };
 
-export default SignIn;
+export default EditLink;

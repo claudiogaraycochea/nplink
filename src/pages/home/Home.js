@@ -1,16 +1,13 @@
 import React, { Component }from "react";
 import {
   Button,
-  Section, Box,
-  H2, H3,
+  Section,
+  BoxIcon,
   Icon,
 } from '../../ui/UI';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import Header from '../../components/header/Header';
-import Newsletter from '../../components/newsletter/Newsletter';
-// import imageClaudio from '../../assets/images/image-claudio-g.png';
 
 class Home extends Component {
 
@@ -39,12 +36,11 @@ class Home extends Component {
   }
 
   render() {
-    // const { fullData } = this.props;
     return (
       <Container fluid>
         <Section className='hero-wrapper'>
           <Row>
-            <Col xs={12} lg={7} className='d-flex flex-column align-items-center justify-content-center'>
+            <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
               <div className='content'>
                 <div className='title'>
                   Incluye un enlace de llamadas instantaneas desde tu website desktop a tu movil
@@ -75,8 +71,108 @@ class Home extends Component {
                 </p>
               </div>
             </Col>
-            <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
+            <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
               <i className='image-hero-home'/>
+            </Col>
+          </Row>
+        </Section>
+        <Section>
+          <Row>
+            <Col>
+              <i className='image-step-1'/>
+            </Col>
+            <Col>
+              <h2>Fdsfsafasfa</h2>
+              <p>
+                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
+              </p>
+            </Col>
+          </Row>
+        </Section>
+        <Section>
+          <Row>
+            <Col>
+              <h2>Fdsfsafasfa</h2>
+              <p>
+                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
+              </p>              
+            </Col>
+            <Col>
+              <i className='image-step-2'/>
+            </Col>
+          </Row>
+        </Section>
+        <Section>
+          <Row>
+            <Col>
+              <i className='image-step-3'/>
+            </Col>
+            <Col>
+              <h2>Fdsfsafasfa</h2>
+              <p>
+                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
+              </p>
+            </Col>
+          </Row>
+        </Section>
+        <Section>
+          <Row>
+            <Col>
+              <h2>Mas herramientas</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              Al momento en que tu potencial cliente visita tu sitio web de 
+              escritorio aparecera en la parte inferior un boton de “contactanos”, 
+              al hacer click aparecera una ventana con un codigo QR, al escanear 
+              desde el movil estara llamando al instante.
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                Sistema de estadisticas               
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                Puntuacion de atencion               
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                Captura de telefonos                 
+              </BoxIcon>
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                Balanceador de llamadas               
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                URLs de Procedencia               
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon=''
+              >
+                Seguimientos de atencion               
+              </BoxIcon>
             </Col>
           </Row>
         </Section>

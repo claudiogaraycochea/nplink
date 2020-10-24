@@ -1,6 +1,6 @@
 .container, .container-fluid {
-  /*max-width: 100%;*/
   min-height: 90vh;
+  padding-top: 60px;
 }
 
 .section {
@@ -97,6 +97,12 @@
   font-weight: bold;
   line-height: 120%;
   margin-bottom: 5px;
+}
+
+.box-icon {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
 }
 
 /*

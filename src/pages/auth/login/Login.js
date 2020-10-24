@@ -3,7 +3,7 @@ import {
   Button,
   Section,
   H1,
-  Notification,
+  // Notification,
 } from '../../../ui/UI';
 import { 
   Container,
@@ -13,14 +13,14 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
-import { request, ContentTypes } from '../../../libs/request';
+// import { request, ContentTypes } from '../../../libs/request';
 
 class Login extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-      firstname: '',
-      lastname: '',
+      email: '',
+      password: '',
       validated: false,
       formSent: false,
 		};
@@ -68,7 +68,7 @@ class Login extends Component {
   }
 
   render() {
-    const { firstname, lastname, validated } = this.state;
+    const { email, password, validated } = this.state;
     return (
       <Container fluid>
         <Section className='main-wrapper'>
@@ -89,8 +89,8 @@ class Login extends Component {
                           <Form.Control
                             type='email'
                             placeholder=''
-                            name='lastname'
-                            value={lastname}
+                            name='email'
+                            value={email}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -102,8 +102,8 @@ class Login extends Component {
                           <Form.Control
                             type='password'
                             placeholder=''
-                            name='lastname'
-                            value={lastname}
+                            name='password'
+                            value={password}
                             required
                             onChange={this.handleInputChange}
                           />
