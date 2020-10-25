@@ -4,6 +4,7 @@ import {
   Section,
   BoxIcon,
   Icon,
+  H1, H2, H3, Subtitle,
 } from '../../ui/UI';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -42,23 +43,18 @@ class Home extends Component {
           <Row>
             <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
               <div className='content'>
-                <div className='title'>
-                  Incluye un enlace de llamadas instantaneas desde tu website desktop a tu movil
+                <div className='hero-title'>
+                  Brina una mejor experiencia de atención a tus clientes
                 </div>
-                <div className='subtitle'>
-                  Cada vez que un visitante ingresa a tu sitio en un ordenador, debe 
-                  ingresar el contacto en su movil para luego enviar el mensaje, o 
-                  ingresar todo el numero para llamar, con Nextplay esto es mucho 
-                  mas facil para tus clientes.
+                <div className='hero-subtitle'>
+                  Incluye un enlace de llamadas instantaneas desde 
+                  tu website desktop a tu movil. 
+                  Desde tu movil estimula a llamadas inmediatas.
                 </div>
                 <p>
-                  Escanea el codigo QR desde su movil y al instante podra escribir el 
-                  mensaje de Whatsapp o directamente podra llamarte. Un paso mas 
-                  sencillo y estimulante para que tus visitantes contacten contigo.
-                </p>
-                <p>
-                  Pruebalo ahora, abre este sitio web desde tu desktop y haz click 
-                  en el boton “Contactanos desde tu movil”.
+                  Pruebalo ahora, desde un dispositivo desktop haz 
+                  click en el boton "Contactanos", al instante 
+                  aparecera en tu movil el boton de llamada.
                 </p>
                 <p>
                   <Link to='/sign-in'>
@@ -77,76 +73,121 @@ class Home extends Component {
           </Row>
         </Section>
         <Section>
-          <Row>
+          <Row className='center'>
             <Col>
-              <i className='image-step-1'/>
-            </Col>
-            <Col>
-              <h2>Fdsfsafasfa</h2>
-              <p>
-                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
-              </p>
+              <H2>Carácteristicas</H2>
             </Col>
           </Row>
-        </Section>
-        <Section>
-          <Row>
+          <Row className='center'>
             <Col>
-              <h2>Fdsfsafasfa</h2>
-              <p>
-                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
-              </p>              
+              <Subtitle>
+                Agiliza el proceso de llamadas instantaneas a tu comercio o empresa, ideal para sitios webs o landing pages
+              </Subtitle>
             </Col>
-            <Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='6'>
+              <i className='image-step-1'/>
+            </Col>
+            <Col sx='12' lg='6'>
+              <div className='step-content'>
+                <H2>1. Llamada directa website de escritorio</H2>
+                <p>
+                  Al momento en que tu potencial cliente visita tu 
+                  sitio web de escritorio aparecera en la parte 
+                  inferior un boton de “contactanos”, al hacer 
+                  click aparecera una ventana con un codigo QR, 
+                  al escanear desde el movil estara llamando o 
+                  enviando un Whastapp al instante. 
+                </p>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
+              <div className='step-content'>
+                <H2>2. Contacto simple desde movil</H2>
+                <p>
+                  En la versión movil aparecera el boton 
+                  para llamada directa, enviar un Whastapp, 
+                  y otro agregado que desees insertar. 
+                  Tu visitante siempre tendra a mano el 
+                  boton que estimulará al contacto.
+                </p>
+              </div>
+            </Col>
+            <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
               <i className='image-step-2'/>
             </Col>
           </Row>
-        </Section>
-        <Section>
           <Row>
-            <Col>
+            <Col sx='12' lg='6'>
               <i className='image-step-3'/>
             </Col>
-            <Col>
-              <h2>Fdsfsafasfa</h2>
-              <p>
-                rewerwerewrewre e ewrwewerewr werwewerwe rwer werewrewrewrwerew 
-              </p>
+            <Col sx='12' lg='6'>
+              <div className='step-content'>
+                <H2>3. Retorno de contacto fuera de horario</H2>
+                <p>
+                  Al momento en que tu visitante ingresa fuera del horario  
+                  de oficina, apareceran opciones como el formulario 
+                  para ingresar su movil y retorno de llamada. 
+                  De esta manera estaras estimulando al visitante 
+                  a mantener el contacto con tu comercio 24x7.
+                </p>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
+              <div className='step-content'>
+                <H2>4. Menu seleccion de area de contacto</H2>
+                <p>
+                  Cada vez que alguien llama a tu empresa, debe 
+                  esperar a escuchar las opciones de menu por voz, 
+                  desde NextPlay brindamos una mejor opcion a tus 
+                  clientes, donde la comunicacion con el area de 
+                  interes por es cliente es mas intuitiva y rapida.
+                </p>
+              </div>
+            </Col>
+            <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
+              <i className='image-step-4'/>
             </Col>
           </Row>
         </Section>
-        <Section>
+        <Section className='center'>
           <Row>
             <Col>
-              <h2>Mas herramientas</h2>
+              <H2>Mas herramientas</H2>
             </Col>
           </Row>
           <Row>
             <Col>
-              Al momento en que tu potencial cliente visita tu sitio web de 
-              escritorio aparecera en la parte inferior un boton de “contactanos”, 
-              al hacer click aparecera una ventana con un codigo QR, al escanear 
-              desde el movil estara llamando al instante.
+              <Subtitle>
+                Queremos que puedas acceder a una experiencia 
+                completa de tu atencion al cliente, desde 
+                capturar telefonos, valoracion de llamadas, y mas...            
+              </Subtitle>
             </Col>
           </Row>
           <Row>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='statistics'
               >
                 Sistema de estadisticas               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='rating'
               >
                 Puntuacion de atencion               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='phone-book'
               >
                 Captura de telefonos                 
               </BoxIcon>
@@ -155,24 +196,48 @@ class Home extends Component {
           <Row>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='balancer'
               >
                 Balanceador de llamadas               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='referrer'
               >
                 URLs de Procedencia               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
-                icon=''
+                icon='follow'
               >
                 Seguimientos de atencion               
               </BoxIcon>
+            </Col>
+          </Row>
+        </Section>
+        <Section className='light center'>
+          <Row>
+            <Col>
+              <H2>Algunos clientes</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='d-flext justify-content-center'>
+              <Icon className='customer-neoassimilation'/>
+            </Col>
+            <Col className='d-flext justify-content-center'>
+              <Icon className='customer-publicbloc'/>
+            </Col>
+            <Col className='d-flext justify-content-center'>
+              <Icon className='customer-zety'/>
+            </Col>
+            <Col className='d-flext justify-content-center'>
+              <Icon className='customer-beno'/>
+            </Col>
+            <Col className='d-flext justify-content-center'>
+              <Icon className='customer-mabella'/>
             </Col>
           </Row>
         </Section>

@@ -17,9 +17,10 @@ export const Section = (props) => {
     className,
     children,
   } = props;
+  const classElement = (className) ? `section ${className}` : 'section';
   return (
     <div
-      className={`section ${className}`}
+      className={classElement}
     >
       {children}
     </div>
@@ -107,16 +108,12 @@ export const BoxIcon = (props) => {
     icon,
     children,
   } = props;
-  const styles = {
-    backgroundImage: `url(${icon})`,
-  };
   return (
     <div
       className={`box-icon`}
     >
       <div
-        className='icon'
-        style={styles}
+        className={`icon ${icon}`}
       />
       {children}
     </div>
