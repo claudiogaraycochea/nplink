@@ -44,7 +44,7 @@ class Home extends Component {
             <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
               <div className='content'>
                 <div className='hero-title'>
-                  Brina una mejor experiencia de atención a tus clientes
+                  Brinda una mejor experiencia de atención a tus clientes
                 </div>
                 <div className='hero-subtitle'>
                   Incluye un enlace de llamadas instantaneas desde 
