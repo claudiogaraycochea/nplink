@@ -61,6 +61,22 @@
   background-image: url('../../../assets/images/icon-innovation.svg');
 }
 
+.icon.chat {
+  background-image: url('../../../assets/images/icon-chat.svg');
+}
+
+.icon.video-chat {
+  background-image: url('../../../assets/images/icon-video-chat.svg');
+}
+
+.icon.video-chat {
+  background-image: url('../../../assets/images/icon-video-chat.svg');
+}
+
+.icon.booking {
+  background-image: url('../../../assets/images/icon-booking.svg');
+}
+
 .icon.support {
   background-image: url('../../../assets/images/icon-support.svg');
 }

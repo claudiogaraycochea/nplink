@@ -4,7 +4,7 @@ import {
   Section,
   BoxIcon,
   Icon,
-  H1, H2, H3, Subtitle,
+  H2, Subtitle,
 } from '../../ui/UI';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -47,14 +47,16 @@ class Home extends Component {
                   Brinda una mejor experiencia de atención a tus clientes
                 </div>
                 <div className='hero-subtitle'>
-                  Incluye un enlace de llamadas instantaneas desde 
-                  tu website desktop a tu movil. 
-                  Desde tu movil estimula a llamadas inmediatas.
+                  Ofrecemos un CRM gratuito para gestión de atención al cliente 
+                  que mejora la experinecia en tu comercio o empresa.
                 </div>
                 <p>
-                  Pruebalo ahora, desde un dispositivo desktop haz 
-                  click en el boton "Contactanos", al instante 
-                  aparecera en tu movil el boton de llamada.
+                  Simplemente insertando el botón de NextPlay, tu empresa 
+                  podrá acceder a un listado herramientas que mejoran la 
+                  atención a tus clientes, van desde botón de llamada de 
+                  desktop a móvil, Whatsapp, llamadas, menú de contactos, 
+                  chat, video chat, pagos y reservas para atención 
+                  online/presencial y más de lo que tu empresa necesita.
                 </p>
                 <p>
                   <Link to='/sign-in'>
@@ -81,7 +83,9 @@ class Home extends Component {
           <Row className='center'>
             <Col>
               <Subtitle>
-                Agiliza el proceso de llamadas instantaneas a tu comercio o empresa, ideal para sitios webs o landing pages
+                Mejora el proceso de llamadas instantáneas a tu comercio o empresa, ofrece un 
+                menú de empresa con derivación de contacto, ofrece múltiples vías y 
+                herramientas de atención al cliente, ideal para sitios webs o landing pages.
               </Subtitle>
             </Col>
           </Row>
@@ -158,16 +162,42 @@ class Home extends Component {
         <Section className='center'>
           <Row>
             <Col>
-              <H2>Mas herramientas</H2>
+              <H2>CRM Gestor de Atención al Cliente</H2>
             </Col>
           </Row>
           <Row>
             <Col>
               <Subtitle>
                 Queremos que puedas acceder a una experiencia 
-                completa de tu atencion al cliente, desde 
-                capturar telefonos, valoracion de llamadas, y mas...            
+                completa de tu atención al cliente de la manera 
+                más sencilla y rápida. Simplemente incrusta el botón de NextPlay y 
+                podrás acceder a una serie de herramientas online, 
+                especiamente creadas para ofrecer la mejor atención 
+                a tus clientes.
               </Subtitle>
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='chat'
+              >
+                Atención por Chat              
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='video-chat'
+              >
+                Atención por Video Chat              
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='booking'
+              >
+                Pagos y Reservas Online                
+              </BoxIcon>
             </Col>
           </Row>
           <Row>
@@ -175,21 +205,21 @@ class Home extends Component {
               <BoxIcon
                 icon='statistics'
               >
-                Sistema de estadisticas               
+                Sistema de estadísticas               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='rating'
               >
-                Puntuacion de atencion               
+                Puntuación de atención               
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='phone-book'
               >
-                Captura de telefonos                 
+                Captura de teléfonos                 
               </BoxIcon>
             </Col>
           </Row>
@@ -212,7 +242,7 @@ class Home extends Component {
               <BoxIcon
                 icon='follow'
               >
-                Seguimientos de atencion               
+                Seguimientos de atención               
               </BoxIcon>
             </Col>
           </Row>
@@ -238,6 +268,16 @@ class Home extends Component {
             </Col>
             <Col className='d-flext justify-content-center'>
               <Icon className='customer-mabella'/>
+            </Col>
+          </Row>
+        </Section>
+        <Section>
+          <Row>
+            <Col>Se uno de los primeros en utilizar nuestra plataforma</Col>
+          </Row>
+          <Row>
+            <Col>
+              Formulario
             </Col>
           </Row>
         </Section>
