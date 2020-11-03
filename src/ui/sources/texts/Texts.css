@@ -1,8 +1,9 @@
 h1, h2, h3, h4 {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold !important;
-	color: #394056;
-	margin-bottom: 20px !important;
+	color: #222222;
+	font-family: 'Poppins', sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 1.2;
 }
 
 h1 {
@@ -18,6 +19,16 @@ h2 {
 h3 {
 	font-size: 20px !important;
 	font-weight: 400 !important;
+}
+
+.subtitle {
+	font-size: 30px;
+	max-width: 80%;
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	margin-bottom: 50px;
+	color: #adb5bd;
 }
 
 .text-highlight {

@@ -17,9 +17,10 @@ export const Section = (props) => {
     className,
     children,
   } = props;
+  const classElement = (className) ? `section ${className}` : 'section';
   return (
     <div
-      className={`section ${className}`}
+      className={classElement}
     >
       {children}
     </div>
@@ -97,6 +98,23 @@ export const BoxCircle = (props) => {
       >
         {topChildren}
       </div>
+      {children}
+    </div>
+  );
+};
+
+export const BoxIcon = (props) => {
+  const {
+    icon,
+    children,
+  } = props;
+  return (
+    <div
+      className={`box-icon`}
+    >
+      <div
+        className={`icon ${icon}`}
+      />
       {children}
     </div>
   );

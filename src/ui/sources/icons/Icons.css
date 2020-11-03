@@ -61,6 +61,22 @@
   background-image: url('../../../assets/images/icon-innovation.svg');
 }
 
+.icon.chat {
+  background-image: url('../../../assets/images/icon-chat.svg');
+}
+
+.icon.video-chat {
+  background-image: url('../../../assets/images/icon-video-chat.svg');
+}
+
+.icon.video-chat {
+  background-image: url('../../../assets/images/icon-video-chat.svg');
+}
+
+.icon.booking {
+  background-image: url('../../../assets/images/icon-booking.svg');
+}
+
 .icon.support {
   background-image: url('../../../assets/images/icon-support.svg');
 }
@@ -79,4 +95,62 @@
 
 .icon.email {
   background-image: url('../../../assets/images/icon-email.svg');
+}
+
+.icon.statistics {
+  background-image: url('../../../assets/images/icon-statistics.svg');
+}
+
+.icon.rating {
+  background-image: url('../../../assets/images/icon-rating.svg');
+}
+
+.icon.phone-book {
+  background-image: url('../../../assets/images/icon-phone-book.svg');
+}
+
+.icon.phone-book {
+  background-image: url('../../../assets/images/icon-phone-book.svg');
+}
+
+.icon.balancer {
+  background-image: url('../../../assets/images/icon-balancer.svg');
+}
+
+.icon.referrer {
+  background-image: url('../../../assets/images/icon-referrer.svg');
+}
+
+.icon.follow {
+  background-image: url('../../../assets/images/icon-follow.svg');
+}
+
+.icon.customer-neoassimilation {
+  background-image: url('../../../assets/images/icon-customer-neoassimilation.svg');
+  width: 200px;
+  height: 38px;
+}
+
+.icon.customer-publicbloc {
+  background-image: url('../../../assets/images/icon-customer-publicbloc.svg');
+  width: 200px;
+  height: 38px;
+}
+
+.icon.customer-zety {
+  background-image: url('../../../assets/images/icon-customer-zety.svg');
+  width: 148px;
+  height: 38px;
+}
+
+.icon.customer-beno {
+  background-image: url('../../../assets/images/icon-customer-beno.svg');
+  width: 148px;
+  height: 32px;
+}
+
+.icon.customer-mabella {
+  background-image: url('../../../assets/images/icon-customer-mabella.svg');
+  width: 148px;
+  height: 38px;
 }
