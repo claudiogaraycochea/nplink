@@ -56,6 +56,11 @@
   padding: 40px;
 }
 
+.check-terms {
+  display: flex;
+  font-size: 14px;
+}
+
 @media (min-width: 768px) {
 
   .social-wrapper .social-item .btn {
