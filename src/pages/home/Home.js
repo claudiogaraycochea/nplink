@@ -6,37 +6,98 @@ import {
   Icon,
   H2, Subtitle,
 } from '../../ui/UI';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Form, Alert } from 'react-bootstrap';
+import { request, ContentTypes } from '../../libs/request';
+import countries from '../../store/statics/Countries';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 class Home extends Component {
-
-  getFacebookURL = () => {
-    const message = 'Te invito a conocer el workshop de Neoasimilación para adquirir habilidades laborales rápidamente y reducir estrés. Visita https://neoassimilation.com';
-    const text = encodeURIComponent(message);
-    return `https://www.facebook.com/sharer.php?u=https%3A%2F%2Fneoassimilation.com&t=${text}`;
+	constructor(props) {
+		super(props);
+		this.state = {
+			forgotPasswordSent: false,
+      email: '',
+      repeat_email: '',
+      firstname: '',
+      lastname: '',
+      city: '',
+      zip_code: '',
+      state: '',
+      country: '',
+      course_type: 99,
+      validated: false,
+      subscriptionSent: false,
+		};
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  getWhatsappURL = () => {
-    const message = 'Te invito a conocer el workshop de Neoasimilación para adquirir habilidades laborales rápidamente y reducir estrés. Visita https://neoassimilation.com';
-    const text = encodeURIComponent(message);
-    return `whatsapp://send?text=${text}`;
+	handleSubmit = (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+    const form = event.currentTarget;
+    console.log('event: ', event);
+		if (form.checkValidity() === false) {
+			this.setState({ validated: true });
+		} else {
+			this.sendSubscribe();
+		}
   }
 
-  getTwitterURL = () => {
-    const message = 'Te invito a conocer el workshop de Neoasimilación para adquirir habilidades laborales rápidamente y reducir estrés. Visita https://neoassimilation.com';
-    const text = encodeURIComponent(message);
-    return `https://twitter.com/intent/tweet?text=${text}`;
+	async sendSubscribe() {
+		const { 
+      email,
+      firstname,
+      lastname,
+      city,
+      zip_code,
+      state,
+      country,
+      course_type
+    } = this.state;
+
+		const data = {
+      "email": email,
+      "firtname": firstname,
+      "lastname": lastname,
+      "city": city,
+      "zip_code": zip_code,
+      "state": state,
+      "country": country,
+      "course_type": 99,
+    };
+    const endpoint = '/subscriptor';
+    //const endpoint = '/user';
+		try {
+			await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
+      this.setState({ subscriptionSent: true });
+		} catch (err) {
+			// console.error(err);
+		}
   }
 
-  getLinkedinURL = () => {
-    const message = 'Te invito a conocer el workshop de Neoasimilación para adquirir habilidades laborales rápidamente y reducir estrés. Visita https://neoassimilation.com';
-    const text = encodeURIComponent(message);
-    return `https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fneoassimilation.com&title=${text}`;
-  }
+	handleInputChange(event) {
+		const { target } = event;
+		const { name } = target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		this.setState({ [name]: value });
+	}
 
   render() {
+    const {
+      firstname,
+      lastname,
+      city,
+      zip_code,
+      state,
+      country,
+      email,
+      repeat_email,
+      course_type,
+      validated,
+      subscriptionSent,
+    } = this.state;
     return (
       <Container fluid>
         <Section className='hero-wrapper'>
@@ -47,25 +108,25 @@ class Home extends Component {
                   Brinda una mejor experiencia de atención a tus clientes
                 </div>
                 <div className='hero-subtitle'>
-                  Ofrecemos un CRM gratuito para gestión de atención al cliente 
-                  que mejora la experinecia en tu comercio o empresa.
+                  Ofrecemos un CRM gratuito que permite gestionar la atención al 
+                  cliente en tu comercio o empresa.
                 </div>
                 <p>
-                  Simplemente insertando el botón de NextPlay, tu empresa 
-                  podrá acceder a un listado herramientas que mejoran la 
-                  atención a tus clientes, van desde botón de llamada de 
+                  Con tan solo insertar el botón de NextPlay en tu 
+                  sitio web podrás acceder a un listado herramientas que mejoran la 
+                  atención a tus clientes, que va desde botón de llamada de 
                   desktop a móvil, Whatsapp, llamadas, menú de contactos, 
                   chat, video chat, pagos y reservas para atención 
                   online/presencial y más de lo que tu empresa necesita.
                 </p>
                 <p>
-                  <Link to='/sign-in'>
+                  <a href='#signin'>
                     <Button
                       className='secondary large'
                     >
                       ¡Incluir en mi website gratis!
                     </Button>
-                  </Link>
+                  </a>
                 </p>
               </div>
             </Col>
@@ -77,15 +138,19 @@ class Home extends Component {
         <Section>
           <Row className='center'>
             <Col>
-              <H2>Carácteristicas</H2>
+              <H2>Características</H2>
             </Col>
           </Row>
           <Row className='center'>
             <Col>
               <Subtitle>
-                Mejora el proceso de llamadas instantáneas a tu comercio o empresa, ofrece un 
-                menú de empresa con derivación de contacto, ofrece múltiples vías y 
-                herramientas de atención al cliente, ideal para sitios webs o landing pages.
+                Queremos que puedas brindar una experiencia completa 
+                de atención a tus clientes, de la manera más sencilla y 
+                rápida. Simplemente incrusta el botón de NextPlay 
+                en tu website o landing page y podrás acceder a una 
+                serie de herramientas creadas para 
+                que puedas ofrecer la mejor atención 
+                a tus clientes.
               </Subtitle>
             </Col>
           </Row>
@@ -97,12 +162,11 @@ class Home extends Component {
               <div className='step-content'>
                 <H2>1. Llamada directa website de escritorio</H2>
                 <p>
-                  Al momento en que tu potencial cliente visita tu 
-                  sitio web de escritorio aparecera en la parte 
-                  inferior un boton de “contactanos”, al hacer 
-                  click aparecera una ventana con un codigo QR, 
-                  al escanear desde el movil estara llamando o 
-                  enviando un Whastapp al instante. 
+                  En el sitio web de escritorio al pie aparecerá un 
+                  botón de NextPlay. Al hacer clic se podrá sincronizar 
+                  con el móvil a través de un código QR. En su 
+                  smartphone aparecerá instantáneamente las opciones de 
+                  Llamar, Whatsapp, Chat, menú de contactos, etc.
                 </p>
               </div>
             </Col>
@@ -112,11 +176,10 @@ class Home extends Component {
               <div className='step-content'>
                 <H2>2. Contacto simple desde movil</H2>
                 <p>
-                  En la versión movil aparecera el boton 
-                  para llamada directa, enviar un Whastapp, 
-                  y otro agregado que desees insertar. 
-                  Tu visitante siempre tendra a mano el 
-                  boton que estimulará al contacto.
+                  En este dispositivo el logo de NextPlay se convierte 
+                  en un botón de llamada instantánea, al hacer clic 
+                  aparecerá las opciones para enviar un Whatsapp, 
+                  Llamar, Chat, menú de contactos, etc.
                 </p>
               </div>
             </Col>
@@ -144,13 +207,14 @@ class Home extends Component {
           <Row>
             <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
               <div className='step-content'>
-                <H2>4. Menu seleccion de area de contacto</H2>
+                <H2>4. Menú selección de área de contacto</H2>
                 <p>
-                  Cada vez que alguien llama a tu empresa, debe 
-                  esperar a escuchar las opciones de menu por voz, 
-                  desde NextPlay brindamos una mejor opcion a tus 
-                  clientes, donde la comunicacion con el area de 
-                  interes por es cliente es mas intuitiva y rapida.
+                  Cuando llamamos a grandes empresas debemos escuchar y 
+                  esperar las opciones de menú por voz. Desde NextPlay 
+                  brindamos una mejor opción a sus clientes, donde la 
+                  comunicación con el área de interés se muestra al 
+                  instante, más intuitiva, rápido y con otras opciones 
+                  de contacto.
                 </p>
               </div>
             </Col>
@@ -168,12 +232,11 @@ class Home extends Component {
           <Row>
             <Col>
               <Subtitle>
-                Queremos que puedas acceder a una experiencia 
-                completa de tu atención al cliente de la manera 
-                más sencilla y rápida. Simplemente incrusta el botón de NextPlay y 
-                podrás acceder a una serie de herramientas online, 
-                especiamente creadas para ofrecer la mejor atención 
-                a tus clientes.
+                A través de un sencillo panel de control podrás 
+                administrar la comunicación con tus clientes. 
+                Encontrarás estas y otras herramientas que se 
+                suman constantemente para mejorar la experiencia 
+                del usuario.
               </Subtitle>
             </Col>
           </Row>
@@ -271,13 +334,152 @@ class Home extends Component {
             </Col>
           </Row>
         </Section>
-        <Section>
-          <Row>
-            <Col>Se uno de los primeros en utilizar nuestra plataforma</Col>
-          </Row>
+        <a id="signin" />
+        <Section className='dark center'>
           <Row>
             <Col>
-              Formulario
+              <H2>Pruebalo gratis</H2>
+              <p>
+                Se uno de los primeros en utilizar nuestra plataforma
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='d-flex justify-content-center'>
+              <div className='form-wrapper'>
+              {(subscriptionSent===false) ? (
+                <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
+                  <Form.Row>
+                    <Form.Group as={Col}>
+                      <Form.Label>Nombre</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='Nombre'
+                        name='firstname'
+                        value={firstname}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                      <Form.Label>Apellido</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='Apellido'
+                        name='lastname'
+                        value={lastname}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col}>
+                      <Form.Label>Ciudad</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='Ciudad'
+                        name='city'
+                        value={city}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                      <Form.Label>Código Postal</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='Código Postal'
+                        name='zip_code'
+                        value={zip_code}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col}>
+                      <Form.Label>Estado/Provincia</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='Estado/Provincia'
+                        name='state'
+                        value={state}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group>
+                    <Form.Group controlId='state' as={Col}>
+                      <Form.Label>País</Form.Label>
+                      <Form.Control
+                        as='select'
+                        name='country'
+                        value={country}
+                        onChange={this.handleInputChange}
+                      >
+                        <option>Choose a country</option>
+                        {countries.map((country) => {
+                          return (
+                            <option key={country.code} value={country.name}>
+                              {country.name}
+                            </option>
+                          );
+                        })}
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col}>
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type='email'
+                        placeholder='Email'
+                        name='email'
+                        value={email}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group> 
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col}>
+                      <Form.Label>Repite tu email</Form.Label>
+                      <Form.Control
+                        type='email'
+                        placeholder='Email'
+                        name='repeat_email'
+                        value={repeat_email}
+                        required
+                        onChange={this.handleInputChange}
+                      />
+                    </Form.Group> 
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Row}>
+                      <Col>
+                        <div className='check-terms'>
+                        <Form.Check
+                          type="checkbox"
+                          label="Aceptar Términos y condiciones"
+                          value="true"
+                          name="terms"
+                          required
+                          onChange={(event) => this.handleInputChange(event)}
+                        />
+                        </div>
+                      </Col>
+                    </Form.Group>
+                  </Form.Row>
+                  <div className='d-flex justify-content-end'>
+                    <Button className='primary large' type='submit'>Subscribirme</Button>
+                  </div>
+                </Form>
+              ) : (
+                <div>
+                  <Alert variant='success'>¡Gracias por subscribirte! te contactaremos a la brevedad.</Alert>
+                </div>
+              )}
+              </div>
             </Col>
           </Row>
         </Section>
