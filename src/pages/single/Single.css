@@ -1,0 +1,116 @@
+.image-hero-home {
+  display: block;
+  height: 90vh;
+  width: 100%;
+  background-image: url('../../assets/images/image-hero-home.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-1 {
+  display: block;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-1.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-2 {
+  display: block;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-2.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-3 {
+  display: block;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-3.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-4 {
+  display: block;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-4.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.step-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.check-terms {
+  display: flex;
+  font-size: 14px;
+}
+
+.box-price-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-price {
+  background-color: #ffffff;
+  padding: 40px 40px;
+  width: 100%;
+  border-radius: 30px;
+  margin: 20px;
+}
+
+.box-price .content {
+  min-height: 180px;
+}
+
+@media (min-width: 768px) {
+
+  .social-wrapper .social-item .btn {
+    min-width: 100% !important;
+  }
+
+  .image-brain-check {
+    height: 75vh;
+    background-position: center;
+  }
+
+  .image-assimilation, .image-neoassimilation {
+    height: 250px;
+  }
+
+  .bubble-wrapper {
+    border-radius: 140px;
+  }
+
+  .bubble-wrapper .content {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .box-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .box-price {
+    width: 380px;
+  }
+}

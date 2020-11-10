@@ -58,6 +58,8 @@ const nextplay = {
     const div = document.createElement('div');
     const whatsapp = nextplay_config.whatsapp;
     const telephone = nextplay_config.telephone;
+    const email = nextplay_config.email;
+    const form = nextplay_config.form;
     if (nextplay.config.device === 'desktop') {
       div.innerHTML = "<div id='nextplay-content' class='nextplay-content fade-in'> \
         <div class='nextplay-row'>Escanea desde tu móvil</div> \
@@ -75,6 +77,16 @@ const nextplay = {
         <div class='nextplay-row'> \
           <a href='tel:"+telephone+"'> \
             <button class='nextplay-btn-call-now'>Llamar ahora</button> \
+          </a> \
+        </div> \
+        <div class='nextplay-row'> \
+          <a href='"+email+"'> \
+            <button class='nextplay-btn-call-now'>"+email+" [Copy]</button> \
+          </a> \
+        </div> \
+        <div class='nextplay-row'> \
+          <a href='"+form+"'> \
+            <button class='nextplay-btn-call-now'>Formulario de contacto</button> \
           </a> \
         </div> \
         <div class='nextplay-footer'><a href='https://nextplay.link'>NextPlay.Link</a></div> \

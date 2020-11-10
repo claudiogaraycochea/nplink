@@ -1,7 +1,9 @@
 /* Pages */
 //import Error404 from '../pages/error404/Error404';
 /* Public */
-import Home from '../pages/home/Home';
+// import Home from '../pages/home/Home';
+import Single from '../pages/single/Single';
+
 import SignIn from '../pages/auth/singIn/SignIn';
 import Login from '../pages/auth/login/Login';
 import Terms from '../pages/terms/Terms';
@@ -67,7 +69,7 @@ export const routes = [
     id: 1,
     exact: true,
     path: '/',
-    Component: Home,
+    Component: Single,
     Layout: FullLayout,
     Access: 'Public',
   }

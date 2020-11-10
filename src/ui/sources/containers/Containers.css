@@ -1,6 +1,6 @@
 .container, .container-fluid {
   min-height: 90vh;
-  padding-top: 60px;
+  /* padding-top: 60px;*/
 }
 
 .section {

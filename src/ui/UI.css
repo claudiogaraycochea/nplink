@@ -1,8 +1,8 @@
 body, html, .main-app, .app, #root {
   height: 100%;
   box-sizing: border-box;
-  background-color: #ffffff; 
-	color: #3b374e;
+  background-color: #FAFAFA; 
+	color: #34306A;
 	font-family: 'Lato', sans-serif;
 	font-style: normal;
 	font-weight: normal;
@@ -63,7 +63,7 @@ body, html, .main-app, .app, #root {
 }
 
 .hero-wrapper .hero-title {
-	color: #222222;
+	color: #34306A;
 	font-family: 'Poppins', sans-serif;
 	font-size: 28px;
 	font-weight: bold;
@@ -75,8 +75,7 @@ body, html, .main-app, .app, #root {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 26px;
-	line-height: 140%;	
-	color: #0F8DFF;
+	line-height: 140%;
 }
 
 .hero-wrapper .subtitle-small {
@@ -387,7 +386,7 @@ a:hover {
 	}
 	
 	.hero-wrapper .hero-subtitle {
-		font-size: 26px;
+		font-size: 22px;
 		margin-bottom: 20px;
 	}
 

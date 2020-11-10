@@ -125,6 +125,18 @@
   background-image: url('../../../assets/images/icon-follow.svg');
 }
 
+.icon.add-user {
+  background-image: url('../../../assets/images/icon-add-user.svg');
+}
+
+.icon.config {
+  background-image: url('../../../assets/images/icon-config.svg');
+}
+
+.icon.embedded {
+  background-image: url('../../../assets/images/icon-embedded.svg');
+}
+
 .icon.customer-neoassimilation {
   background-image: url('../../../assets/images/icon-customer-neoassimilation.svg');
   width: 200px;
