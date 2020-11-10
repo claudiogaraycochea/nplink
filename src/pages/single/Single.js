@@ -113,7 +113,7 @@ class Single extends Component {
                 <p>
                   <a href='#signin'>
                     <Button
-                      className='primary large'
+                      className='secondary large'
                     >
                       ¡Incluir en mi website gratis!
                     </Button>
