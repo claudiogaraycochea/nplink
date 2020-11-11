@@ -10,6 +10,15 @@ body, html, .main-app, .app, #root {
 	font-size: 18px;
 }
 
+.style-dark {
+	background-color: #16153a; 
+	color: #ffffff;
+}
+
+.style-dark h1, .style-dark h2, .style-dark h3 {
+	color: #ffffff;
+}
+
 /* Scroll */
 
 ::-webkit-scrollbar {
@@ -54,16 +63,17 @@ body, html, .main-app, .app, #root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/images/bg-image-left.svg');
+  /*background-image: url('../assets/images/bg-image-left.svg');
   background-position-x: right;
   background-repeat: no-repeat;
-	background-size: contain;
+	background-size: contain;*/
 	margin-left: -15px;
 	margin-right: -15px;
+	padding-top: 60px !important;
 }
 
 .hero-wrapper .hero-title {
-	color: #34306A;
+	color: #ffffff;
 	font-family: 'Poppins', sans-serif;
 	font-size: 28px;
 	font-weight: bold;
@@ -74,7 +84,7 @@ body, html, .main-app, .app, #root {
 	font-family: 'Lato', sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 26px;
+	font-size: 18px;
 	line-height: 140%;
 }
 
@@ -363,6 +373,10 @@ a:hover {
   text-align: left;
 }
 
+.wrapper-visible {
+	width: 100%;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	body, html, .main-app, .app, #root {
@@ -415,6 +429,10 @@ a:hover {
   .main-wrapper .row {
     min-width: 100%;
     width: 100%;
+	}
+
+	.wrapper-visible {
+		width: 1200px;
 	}
 
 }

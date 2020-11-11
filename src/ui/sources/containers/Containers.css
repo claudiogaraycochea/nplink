@@ -30,11 +30,12 @@
 }
 
 .section.dark {
-  background-color: #1c1a33;
+  background-color: #262554;
   color: #FFFFFF;
   font-size: 20px;
   margin-left: -15px;
   margin-right: -15px;
+  border-top-left-radius: 100%;
 }
 
 .section.dark h2 {
