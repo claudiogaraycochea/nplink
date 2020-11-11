@@ -75,17 +75,19 @@ body, html, .main-app, .app, #root {
 .hero-wrapper .hero-title {
 	color: #ffffff;
 	font-family: 'Poppins', sans-serif;
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.2;
+	margin-bottom: 20px;
 }
 
 .hero-wrapper .hero-subtitle {
 	font-family: 'Lato', sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 140%;
+	margin-bottom: 20px;
 }
 
 .hero-wrapper .subtitle-small {
@@ -93,6 +95,15 @@ body, html, .main-app, .app, #root {
 	font-size: 22px;
 	margin-bottom: 20px;
 	line-height: 1.2;
+}
+
+.hero-wrapper .content {
+	text-align: center;
+}
+
+.hero-wrapper a {
+	width: fit-content;
+	margin: 0 auto;
 }
 
 .main-wrapper { 
@@ -377,6 +388,10 @@ a:hover {
 	width: 100%;
 }
 
+.hero-wrapper .row {
+	margin-bottom: 20px;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	body, html, .main-app, .app, #root {
@@ -412,18 +427,28 @@ a:hover {
 
   .hero-wrapper .content {
     text-align: left;
-    padding-left: 80px;
+		padding-left: 80px;
   }
 
   .hero-wrapper .row {
     min-width: 100%;
-    width: 100%;
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.hero-wrapper a {
+		margin: inherit;
+	}
+
+	.center-middle {
+		display: flex;
+    justify-content: center;
+		align-items: center;
 	}
 
   .main-wrapper .content {
 		text-align: left;
 		padding-left: 80px;
-		/*padding-top: 60px;*/
   }
 
   .main-wrapper .row {
