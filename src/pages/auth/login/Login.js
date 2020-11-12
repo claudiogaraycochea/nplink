@@ -71,10 +71,9 @@ class Login extends Component {
     const { email, password, validated } = this.state;
     return (
       <Container fluid>
-        <Section className='main-wrapper'>
+        <Section>
           <Row>
-            <Col xs={12} lg={7}>
-              <div className='content'>
+            <Col xs={12} lg={6} className='center-middle'>
                 <Row>
                   <Col>
                     <H1>Login</H1>
@@ -122,10 +121,7 @@ class Login extends Component {
                     <Link to='/forgot-password'>Forgot Password?</Link>
                   </Col>
                 </Row>
-              </div>
-            </Col>
-            <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
-              <i className='image-hero-home'/>
+
             </Col>
           </Row>
         </Section>

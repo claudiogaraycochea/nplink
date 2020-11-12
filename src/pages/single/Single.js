@@ -4,6 +4,7 @@ import {
   Section,
   BoxIcon,
   H2, H3, Subtitle,
+  Icon,
 } from '../../ui/UI';
 import { Container, Row, Col, Form, Alert } from 'react-bootstrap';
 import { request, ContentTypes } from '../../libs/request';
@@ -18,6 +19,8 @@ class Single extends Component {
 			forgotPasswordSent: false,
       email: '',
       repeat_email: '',
+      password: '',
+      repeat_password: '',
       firstname: '',
       lastname: '',
       city: '',
@@ -47,6 +50,7 @@ class Single extends Component {
 	async sendSubscribe() {
 		const { 
       email,
+      password,
       firstname,
       lastname,
       city,
@@ -57,15 +61,16 @@ class Single extends Component {
 
 		const data = {
       "email": email,
+      "password": password,
       "firtname": firstname,
       "lastname": lastname,
       "city": city,
       "zip_code": zip_code,
       "state": state,
-      "country": country,
-      "course_type": 99,
+      "country": country
     };
-    const endpoint = '/subscriptor';
+    const endpoint = '/user';
+    // https://im6s39wy0a.execute-api.sa-east-1.amazonaws.com/prod
     //const endpoint = '/user';
 		try {
 			await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
@@ -92,6 +97,8 @@ class Single extends Component {
       country,
       email,
       repeat_email,
+      password,
+      repeat_password,
       validated,
       subscriptionSent,
     } = this.state;
@@ -116,7 +123,7 @@ class Single extends Component {
         <Section className='hero-wrapper'>
           <Row>
             {/*</Row><Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>*/}
-            <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }} className='center-middle'>
+            <Col xs={{ span: 12, order: 2 }} md={{ span: 7, order: 1 }} className='center-middle'>
               <div className='content'>
                 <VisibilitySensor>
                   {({ isVisible }) => (
@@ -142,7 +149,7 @@ class Single extends Component {
               </div>
             </Col>
             {/*<Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>*/}
-            <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
+            <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: 2 }}>
               <div className='row'>
                 <i className='image-hero-home'/>                
               </div>
@@ -252,21 +259,24 @@ class Single extends Component {
               <BoxIcon
                 icon='add-user'
               >
-                <p>1. Registrate</p>
+                <H3>1. Registrate</H3>
+                Crea tu cuenta totalmente gratis.
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='config'
               >
-                <p>2. Configura</p>
+                <H3>2. Configura</H3>
+                Ingresa tus contactos de atención al cliente, teléfono, Whatsapp, otros.
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='embedded'
               >
-                <p>3. Publícalo</p>
+                <H3>3. Publícalo</H3>
+                Genera el código e incrustalo en tu website o landing page. Listo!
               </BoxIcon>
             </Col>
           </Row>
@@ -283,7 +293,7 @@ class Single extends Component {
                 <div className='content'>
                   <H3>FREE PLAN</H3>
                   <p>
-                    Obten NextPlay gratis para tu sitio 
+                    Obtén NextPlay gratis para tu sitio 
                     web o landing page, usuarios activos 
                     ilimitados, consultas ilimitadas. 
                     No require tarjeta de crédito.
@@ -308,6 +318,30 @@ class Single extends Component {
                 </div>
                 <div>Contáctanos</div>
               </div>
+            </Col>
+          </Row>
+        </Section>
+        <Section className='center'>
+          <Row>
+            <Col>
+              <H2>Algunos clientes</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='d-flex justify-content-center'>
+              <Icon className='customer-neoassimilation'/>
+            </Col>
+            <Col className='d-flex justify-content-center'>
+              <Icon className='customer-publicbloc'/>
+            </Col>
+            <Col className='d-flex justify-content-center'>
+              <Icon className='customer-zety'/>
+            </Col>
+            <Col className='d-flex justify-content-center'>
+              <Icon className='customer-beno'/>
+            </Col>
+            <Col className='d-flex justify-content-center'>
+              <Icon className='customer-mabella'/>
             </Col>
           </Row>
         </Section>
@@ -435,10 +469,10 @@ class Single extends Component {
                     <Form.Group as={Col}>
                       <Form.Label>Password</Form.Label>
                       <Form.Control
-                        type='text'
-                        placeholder='Ciudad'
-                        name='city'
-                        value={city}
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        value={password}
                         required
                         onChange={this.handleInputChange}
                       />
@@ -446,10 +480,10 @@ class Single extends Component {
                     <Form.Group as={Col}>
                       <Form.Label>Repite Password</Form.Label>
                       <Form.Control
-                        type='text'
-                        placeholder='Código Postal'
-                        name='zip_code'
-                        value={zip_code}
+                        type='password'
+                        placeholder='Password'
+                        name='repeat_password'
+                        value={repeat_password}
                         required
                         onChange={this.handleInputChange}
                       />
@@ -477,7 +511,7 @@ class Single extends Component {
                 </Form>
               ) : (
                 <div>
-                  <Alert variant='success'>¡Gracias por subscribirte! te contactaremos a la brevedad.</Alert>
+                  <Alert variant='success'>Tu cuenta se ha creado correctamente.</Alert>
                 </div>
               )}
               </div>
