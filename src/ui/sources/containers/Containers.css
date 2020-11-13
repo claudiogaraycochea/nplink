@@ -34,10 +34,9 @@
   font-size: 20px;
   margin-left: -15px;
   margin-right: -15px;
-  border-top-left-radius: 100%;
 }
 
-.section.dark h2 {
+.section.dark h1 {
   color: #FFFFFF;
 }
 
@@ -48,8 +47,8 @@
   margin-right: -15px;
 }
 
-.section.light {
-  background-color: #FAFAFA;
+.section.blue-light {
+  background-color: #ECF6FF;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -232,6 +231,10 @@
 
   .row {
     max-width: 1200px;
+  }
+
+  .box-icon {
+    margin-bottom: 20px;
   }
   /*
 

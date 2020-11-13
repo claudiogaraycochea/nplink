@@ -10,7 +10,7 @@ header {
   font-size: 14px;
   font-weight: bold;
   z-index: 1000;
-  background-color: #16153a;
+  background-color: #ffffff;
   box-shadow: 1px 1px 4px #0000000d;
   justify-content: space-between;
 }
@@ -30,21 +30,11 @@ header.top {
   display: inline-block;
 }
 
-.style-dark .nav-logo {
-	background-image: url(../../assets/images/logo-nextplay-white.svg);
-  background-position: center;
-  width: 200px;
-  height: 40px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
 .btn-login {
-  border: 2px solid #ffffff;
+  border: 2px solid #16153a;
   font-size: 13px;
   font-weight: 100;
-  color: #ffffff;
+  color: #16153a;
   padding: 8px 20px;
   border-radius: 30px;
 }

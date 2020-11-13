@@ -1,22 +1,13 @@
 body, html, .main-app, .app, #root {
   height: 100%;
   box-sizing: border-box;
-  background-color: #FAFAFA; 
+  background-color: #ffffff; 
 	color: #34306A;
 	font-family: 'Lato', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	line-height: 1.2;
 	font-size: 18px;
-}
-
-.style-dark {
-	background-color: #16153a; 
-	color: #ffffff;
-}
-
-.style-dark h1, .style-dark h2, .style-dark h3 {
-	color: #ffffff;
 }
 
 /* Scroll */
@@ -70,10 +61,11 @@ body, html, .main-app, .app, #root {
 	margin-left: -15px;
 	margin-right: -15px;
 	padding-top: 60px !important;
+	text-align: center;
 }
 
 .hero-wrapper .hero-title {
-	color: #ffffff;
+	color: black;
 	font-family: 'Poppins', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
@@ -415,7 +407,7 @@ a:hover {
 	}
 	
 	.hero-wrapper .hero-subtitle {
-		font-size: 22px;
+		font-size: 28px;
 		margin-bottom: 40px;
 	}
 
@@ -431,13 +423,7 @@ a:hover {
   }
 
   .hero-wrapper .row {
-    min-width: 100%;
-		width: 100%;
 		margin-bottom: 0;
-	}
-
-	.hero-wrapper a {
-		margin: inherit;
 	}
 
 	.center-middle {

@@ -16,7 +16,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
 
-  console.log('scrolling: ', setScrolling);
+  console.log('scrolling: ', scrolling);
   console.log('scrollTop: ', scrollTop);
 
   return (

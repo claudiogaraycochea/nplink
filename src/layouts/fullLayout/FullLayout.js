@@ -11,7 +11,7 @@ class FullLayout extends Component {
 
 	render() {
 		return (
-			<div className='min-vh-100 style-dark'>
+			<div className='min-vh-100'>
 				<Header />
 				{this.props.children}
         <Footer />

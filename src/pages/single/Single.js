@@ -3,7 +3,7 @@ import {
   Button,
   Section,
   BoxIcon,
-  H2, H3, Subtitle,
+  H1, H2, H3, Subtitle,
   Icon,
 } from '../../ui/UI';
 import { Container, Row, Col, Form, Alert } from 'react-bootstrap';
@@ -103,53 +103,56 @@ class Single extends Component {
       subscriptionSent,
     } = this.state;
     return (
-      <Container fluid className='style-dark'>
-        <div className='context'>
-          <div className="area" >
-            <ul className="circles">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div >
-        </div>
+      <Container fluid>
         <Section className='hero-wrapper'>
+          <VisibilitySensor>
+            {({ isVisible }) => (
+              <Row>
+                <Col>
+                  <div className={`hero-title ${isVisible ? "slideUp enter" : "slideUp"}`}>
+                    Mejora la atención a tus clientes
+                  </div>
+                  <div className={`hero-subtitle ${isVisible ? "slideUp enter s2" : "slideUp"}`}>
+                    Ofrece una mejor experiencia en la atención a tus clientes facil y rápido. 
+                    Simplemente incrusta el botón de NextPlay en tu website o landing page y 
+                    podrás acceder a una serie de herramientas creadas para mejorar la 
+                    experiencia de atención a tus clientes.
+                  </div>
+                  <div>
+                    <a href='#signin' className={isVisible ? "slideUp enter s3" : "slideUp"}>
+                      <Button className='secondary large'>
+                        ¡Incluir en mi website gratis!
+                      </Button>
+                    </a>
+                  </div>
+                </Col>
+              </Row>
+            )}
+          </VisibilitySensor>
+        </Section>
+        <Section className='blue-light'>
           <Row>
-            {/*</Row><Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>*/}
-            <Col xs={{ span: 12, order: 2 }} md={{ span: 7, order: 1 }} className='center-middle'>
+            <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }} className='center-middle'>
               <div className='content'>
                 <VisibilitySensor>
                   {({ isVisible }) => (
                     <div>
-                      <div className={`hero-title ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                        Brinda una mejor atención a tus clientes
+                      <div className={isVisible ? "slideUp enter" : "slideUp"}>
+                        <H2>Elige la herramienta de comunicación más adecuada para cada necesidad</H2>
                       </div>
-                      <div className={`hero-subtitle ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                        Ofrece una mejor experiencia en la atención a tus clientes 
-                        fácil y rápido. Simplemente incrusta el botón de NextPlay 
-                        en tu website o landing page y podrás acceder a una serie 
-                        de herramientas creadas para mejorar la experiencia de 
-                        atención a tus clientes.
-                      </div>
-                      <div>
-                        <a href='#signin' className={`btn secondary ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                          ¡Incluir en mi website gratis!
-                        </a>
+                      <div className={isVisible ? "slideUp enter s2" : "slideUp"}>
+                        Inserta el código por única vez en tu website o landing page, desde tu 
+                        panel de control elige las herramientas que consideres que brindan una 
+                        mejor atención a tus clientes. Habilita en tu botón NextPlay contactos 
+                        por Whatsapp, llamada, chat, video chat, menú y submenus de contactos, 
+                        reservas pagas, compartir pantalla para soporte y mucho más.
                       </div>
                     </div>
                   )}
                 </VisibilitySensor>
               </div>
             </Col>
-            {/*<Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>*/}
-            <Col xs={{ span: 12, order: 1 }} md={{ span: 5, order: 2 }}>
+            <Col xs={{ span: 12, order: 1 }} md={{ span: 6, order: 2 }}>
               <div className='row'>
                 <i className='image-hero-home'/>                
               </div>
@@ -159,49 +162,50 @@ class Single extends Component {
         <Section>
           <VisibilitySensor>
             {({ isVisible }) => (
-              <div className={isVisible ? "fadeIn enter" : "fadeIn"}>
-                <Row className='center'>
-                  <Col>
-                    <H2>¿Qué es y cómo funciona?</H2>
-                  </Col>
-                </Row>
-                <Row className='center'>
-                  <Col>
-                    <Subtitle>
-                      NextPlay fue creado para mejorar el acceso a la 
-                      comunicación de tus clientes con tu comercio o empresa.
-                      Simplemente incrusta el botón de NextPlay en tu website o 
-                      landing page y podrás acceder a una serie de herramientas 
-                      creadas para brindar la mejor atención a tus clientes.
-                    </Subtitle>
-                  </Col>
-                </Row>
+              <div>
+                <div className={isVisible ? "slideUp enter" : "slideUp"}>
+                  <Row className='center'>
+                    <Col>
+                      <H1>Así Funciona</H1>
+                    </Col>
+                  </Row>
+                </div>
+                <div className={isVisible ? "slideUp enter s2" : "slideUp"}>
+                  <Row className='center'>
+                    <Col>
+                      <Subtitle>
+                        Al incrustar el botón de NextPlay abrirá un recuadro con herramientas 
+                        de contactos, a continuación te mostramos algunos ejemplos...
+                      </Subtitle>
+                    </Col>
+                  </Row>
+                </div>
               </div>
             )}
           </VisibilitySensor>
-          <Row>
-            <Col sx='12' lg='6'>
-              <i className='image-step-1'/>
-            </Col>
-            <Col sx='12' lg='6'>
-              <VisibilitySensor>
-                {({ isVisible }) => (
-                  <div className={`step-content ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                    <H3>1. Llamada directa website de escritorio</H3>
-                    <p>
-                      El botón NextPlay en desktop permite una rápida sincronización a llamadas desde el móvil.
-                    </p>
-                  </div>
-                )}
-              </VisibilitySensor>
-            </Col>
-          </Row>
+          <VisibilitySensor>
+            {({ isVisible }) => (
+                <Row>
+                  <Col sx='12' lg='6'>
+                    <i className='image-step-1'/>
+                  </Col>
+                  <Col sx='12' lg='6'>
+                    <div className={`step-content ${isVisible ? "slideUp enter" : "slideUp"}`}>
+                      <H2>1. Llamada directa website de escritorio</H2>
+                      <p>
+                        El botón NextPlay en desktop permite una rápida sincronización a llamadas desde el móvil.
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+            )}
+          </VisibilitySensor>
           <Row>
             <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
               <VisibilitySensor>
                 {({ isVisible }) => (
-                  <div className={`step-content ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                    <H3>2. Contacto simple desde móvil</H3>
+                  <div className={`step-content ${isVisible ? "slideUp enter" : "slideUp"}`}>
+                    <H2>2. Contacto simple desde móvil</H2>
                     <p>
                       En tu móvil el botón NextPlay se convierte en un menú de contacto inmediato.
                     </p>
@@ -220,8 +224,8 @@ class Single extends Component {
             <Col sx='12' lg='6'>
               <VisibilitySensor>
                 {({ isVisible }) => (
-                  <div className={`step-content ${isVisible ? "fadeIn enter" : "fadeIn"}`}>
-                    <H3>3. Retorno de contacto fuera de horario</H3>
+                  <div className={`step-content ${isVisible ? "slideUp enter" : "slideUp"}`}>
+                    <H2>3. Retorno de contacto fuera de horario</H2>
                     <p>
                       Al momento en que el visitante consulta fuera de horario, captura su contacto telefónico.
                     </p>
@@ -232,25 +236,113 @@ class Single extends Component {
           </Row>
         </Section>
         <Section className='center'>
+          <Row>
+            <Col>
+              <H2>Gestor de Atención al Cliente</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Subtitle>
+                A través de un sencillo panel de control podrás 
+                administrar la comunicación con tus clientes. 
+                Encontrarás estas y otras herramientas que se 
+                suman constantemente para mejorar la experiencia 
+                del usuario.
+              </Subtitle>
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='chat'
+              >
+                Atención por Chat
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='video-chat'
+              >
+                Compartir pantalla
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='booking'
+              >
+                Pagos y Reservas Online
+              </BoxIcon>
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='statistics'
+              >
+                Sistema de estadísticas
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='rating'
+              >
+                Puntuación de atención
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='phone-book'
+              >
+                Captura de teléfonos
+              </BoxIcon>
+            </Col>
+          </Row>
+          <Row>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='balancer'
+              >
+                Balanceador de llamadas
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='referrer'
+              >
+                URLs de Procedencia
+              </BoxIcon>
+            </Col>
+            <Col sx='12' lg='4'>
+              <BoxIcon
+                icon='follow'
+              >
+                Seguimientos de atención
+              </BoxIcon>
+            </Col>
+          </Row>
+        </Section>
+        <Section className='center'>
           <VisibilitySensor>
             {({ isVisible }) => (
-              <div className={isVisible ? "fadeIn enter" : "fadeIn"}>
-                <Row>
-                  <Col>
-                    <H2>¿Cómo implementarlo?</H2>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Subtitle>
-                      A través de un sencillo panel de control podrás 
-                      administrar la comunicación con tus clientes. 
-                      Encontrarás estas y otras herramientas que se 
-                      suman constantemente para mejorar la experiencia 
-                      del usuario, comienza a utilizarlo en 3 simples pasos.
-                    </Subtitle>
-                  </Col>
-                </Row>
+              <div>
+                <div className={isVisible ? "slideUp enter" : "slideUp"}>
+                  <Row>
+                    <Col>
+                      <H1>Fácil de Implementar</H1>
+                    </Col>
+                  </Row>
+                </div>
+                <div className={isVisible ? "slideUp enter s2" : "slideUp"}>
+                  <Row>
+                    <Col>
+                      <Subtitle>
+                        Incluye el botón NextPlay en tu sitio web en pocos minutos, 
+                        solo sigue estos simples pasos...
+                      </Subtitle>
+                    </Col>
+                  </Row>
+                </div>
               </div>
             )}
           </VisibilitySensor>
@@ -284,39 +376,65 @@ class Single extends Component {
         <Section className='center'>
           <Row>
             <Col>
-              <H2>Precios</H2>
+              <H1>Precios</H1>
             </Col>
           </Row>
           <Row>
             <Col className='box-price-wrapper'>
               <div className='box-price'>
-                <div className='content'>
+                <div className='header'>
                   <H3>FREE PLAN</H3>
+                  <H2>$0,00</H2>
+                  <div>MES</div>
+                </div>
+                <div className='content'>
                   <p>
-                    Obtén NextPlay gratis para tu sitio 
-                    web o landing page, usuarios activos 
-                    ilimitados, consultas ilimitadas. 
-                    No require tarjeta de crédito.
+                    Acceso a 100 consultas por día a funciones básicas 
+                    como botones de llamadas telefónicas, Whatsapp, 
+                    emails, otros.
                   </p>
                 </div>
-                <div className='d-flex justify-content-center'>
+                <div className='bottom'>
                   <a href='#signin'>
-                    <Button className='secondary'>Obtenlo Gratis</Button>
+                    <Button className='large'>Obtenlo Gratis</Button>
                   </a>
                 </div>
               </div>
-              <div className='box-price ${isVisible'>
+              <div className='box-price blue'>
+                <div className='header'>
+                  <H3>SILVER PLAN</H3>
+                  <H2>$2,99</H2>
+                  <div>MES</div>
+                </div>
                 <div className='content'>
-                  <H3>DEVELOPMENT</H3>
                   <p>
-                    Desarrollamos herramientas a 
-                    medida para brindar la mejor 
-                    atención a tus clientes, video chat, 
-                    menú de compañía, reservas y pagos, 
-                    entre otros.
+                    Acceso a 1.000 consultas por día a funciones básicas 
+                    como botones de llamadas telefonicas, Whatsapp, emails, 
+                    menú de empresa, chat limitado, estadísticas, otros.
                   </p>
                 </div>
-                <div>Contáctanos</div>
+                <div className='bottom'>
+                  <a href='#signin'>
+                    <Button className='large'>Obtenlo Gratis</Button>
+                  </a>
+                </div>
+              </div>
+              <div className='box-price dark'>
+                <div className='header'>
+                  <H3>Desarrollo a Medida para tu Empresa</H3>
+                </div>
+                <div className='content'>
+                  <p>
+                    Un proceso integral donde analizamos las necesidades 
+                    de sus clientes, en base a ello desarrollamos un sistema 
+                    a medida que brinde la mejor experiencia a sus clientes.
+                  </p>
+                </div>
+                <div className='bottom'>
+                  <a href='#signin'>
+                    <Button className='large'>Obtenlo Gratis</Button>
+                  </a>
+                </div>
               </div>
             </Col>
           </Row>
@@ -349,7 +467,7 @@ class Single extends Component {
         <Section className='dark center'>
           <Row>
             <Col>
-              <H2>Obtenlo Gratis</H2>
+              <H1>Obtenlo Gratis</H1>
               <p>
                 Solo para los primeros 1.000 usuarios registrados
               </p>
