@@ -1,5 +1,6 @@
 import React, { Component }from "react";
 import {
+  Button,
   Section,
   H1,
 } from '../../../../ui/UI';
@@ -9,18 +10,19 @@ import {
   Col,
   Form,
 } from 'react-bootstrap';
+import Toggle from 'react-toggle';
 import './CreateLink.css';
 import { request, ContentTypes } from '../../../../libs/request';
+import ButtonNextPlay from '../../../../components/buttonNextPlay/ButtonNextPlay';
 
 class CreateLink extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-      link_whatsapp: '',
-      link_telephone: '',
-      link_email: '',
-      link_form: '',
-      link_website: '',
+      title: 'Contáctanos',
+      description: 'Llamanos de lunes a viernes de 10hs a 20hs.',
+      firstname: '',
+      lastname: '',
       validated: false,
       formSent: false,
       deviceSelected: 'desktop',
@@ -77,23 +79,21 @@ class CreateLink extends Component {
 
   render() {
     const {
-      link_whatsapp,
-      link_telephone,
-      link_email,
-      link_form,
-      link_website,
+      title,
+      description,
+      firstname,
       validated,
-      // deviceSelected,
+      deviceSelected,
     } = this.state;
     return (
       <Container fluid>
         <Section className='main-wrapper'>
           <Row>
-            <Col xs={12} lg={6}>
+            <Col xs={12} lg={7}>
               <div className='content'>
                 <Row>
                   <Col>
-                    <H1>Crear botón</H1>
+                    <H1>Create Link</H1>
                   </Col>
                 </Row>
                 <Row>
@@ -101,12 +101,51 @@ class CreateLink extends Component {
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
                       <Form.Row>
                         <Form.Group as={Col}>
+                          <Form.Label>Link Name</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder=''
+                            name='firstname'
+                            value={firstname}
+                            required
+                            onChange={this.handleInputChange}
+                          />
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col}>
+                          <Form.Label>Title</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder=''
+                            name='title'
+                            value={title}
+                            required
+                            onChange={this.handleInputChange}
+                          />
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col}>
+                          <Form.Label>Description</Form.Label>
+                          <Form.Control
+                            type='text'
+                            placeholder=''
+                            name='description'
+                            value={description}
+                            required
+                            onChange={this.handleInputChange}
+                          />
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col}>
                           <Form.Label>Whatsapp</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder='3490000000'
-                            name='link_whatsapp'
-                            value={link_whatsapp}
+                            placeholder=''
+                            name='firstname'
+                            value={firstname}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -114,88 +153,82 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Teléfono</Form.Label>
+                          <Form.Label>Telephone</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder='3490000000'
-                            name='link_telephone'
-                            value={link_telephone}
+                            placeholder=''
+                            name='firstname'
+                            value={firstname}
                             required
                             onChange={this.handleInputChange}
                           />
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>
-                        <Form.Group as={Col}>
-                          <Form.Label>Email</Form.Label>
-                          <Form.Control
-                            type='text'
-                            placeholder='info@example.com'
-                            name='link_email'
-                            value={link_email}
-                            required
-                            onChange={this.handleInputChange}
-                          />
+                        <Form.Label>How look in?</Form.Label>
+                        <Form.Group as={Col} className='d-flex align-items-center'>
+                          <div className='device-selector-wrapper'>
+                            <div className='item'>
+                              Desktop
+                            </div>
+                            <div className='item'>
+                              <Toggle
+                                defaultChecked={(deviceSelected==='mobile') ? true : false}
+                                icons={false}
+                                onChange={this.handleBtnToggleChange}
+                              />
+                            </div>
+                            <div className='item'>
+                              Mobile
+                            </div>
+                          </div>
                         </Form.Group>
                       </Form.Row>
                       <Form.Row>
-                        <Form.Group as={Col}>
-                          <Form.Label>URL de formulario en tu website</Form.Label>
-                          <Form.Control
-                            type='text'
-                            placeholder='https://example.com/contacto'
-                            name='link_form'
-                            value={link_form}
-                            required
-                            onChange={this.handleInputChange}
-                          />
-                        </Form.Group>
-                      </Form.Row>
-                      <Form.Row>
-                        <Form.Group as={Col}>
-                          <Form.Label>URL de tu website</Form.Label>
-                          <Form.Control
-                            type='text'
-                            placeholder='https://example.com'
-                            name='link_website'
-                            value={link_website}
-                            required
-                            onChange={this.handleInputChange}
-                          />
-                        </Form.Group>
+                        <Col>
+                          <Button className='secondary' type='submit'>Accept</Button>
+                        </Col>
                       </Form.Row>
                     </Form>
                   </Col>
                 </Row>
               </div>
             </Col>
-            <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
-              <div>
-                <Row>
-                  <Col>
-                    Para activar el boton NextPlay, copia y pega el siguiente codigo antes de finalizar la etiqueta body.
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <pre>
-                  {`<script>
-  const nextplay_config = {
-    whatsapp: "${link_whatsapp}",
-    telephone: ${link_telephone},
-    email: "${link_email}",
-    form: "${link_form}",
-    website: "${link_website}"
-  };
-</script>
-<script async="" src="http://192.168.0.12:3000/nextplay/1.0.1/nextplay.js"></script>`}
-                    </pre>
-                  </Col>
-                </Row>
+            <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
+              <div className='mobile-preview'>
+                <div className='mobile-preview-content'>
+                  <Row>
+                    <Col>
+                      <div className='title'>{title}</div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      {description}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button
+                        className='primary large'
+                      >Whatsapp</Button>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Button 
+                        className='secondary large'
+                      >
+                        Call Now
+                      </Button>
+                    </Col>
+                  </Row>                  
+                </div>
               </div>
             </Col>
           </Row>
         </Section>
+        <ButtonNextPlay device={deviceSelected} />
       </Container>
     );
   }

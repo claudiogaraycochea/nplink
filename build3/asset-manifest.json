@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c6aeefab.chunk.css",
+    "main.js": "/static/js/main.790066a5.chunk.js",
+    "main.js.map": "/static/js/main.790066a5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bbbfbf75.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bbbfbf75.js.map",
+    "static/css/2.9b79e585.chunk.css": "/static/css/2.9b79e585.chunk.css",
+    "static/js/2.1c1acf2e.chunk.js": "/static/js/2.1c1acf2e.chunk.js",
+    "static/js/2.1c1acf2e.chunk.js.map": "/static/js/2.1c1acf2e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.fd55c8cfca1187beb572bcfa19990518.js": "/precache-manifest.fd55c8cfca1187beb572bcfa19990518.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9b79e585.chunk.css.map": "/static/css/2.9b79e585.chunk.css.map",
+    "static/css/main.c6aeefab.chunk.css.map": "/static/css/main.c6aeefab.chunk.css.map",
+    "static/js/2.1c1acf2e.chunk.js.LICENSE.txt": "/static/js/2.1c1acf2e.chunk.js.LICENSE.txt",
+    "static/media/UI.css": "/static/media/image-qr-deco.a58fb198.svg",
+    "static/media/Containers.css": "/static/media/image-divisor.2856153c.svg",
+    "static/media/ButtonNextPlay.css": "/static/media/button-next-play-whatsapp-icon.420b59f0.svg",
+    "static/media/Icons.css": "/static/media/loading.731e4d63.svg",
+    "static/media/Single.css": "/static/media/image-step-4.7f3748e9.svg",
+    "static/media/Header.css": "/static/media/logo.5b488784.svg",
+    "static/media/EditLink.css": "/static/media/mobile-preview.bbf4b982.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bbbfbf75.js",
+    "static/css/2.9b79e585.chunk.css",
+    "static/js/2.1c1acf2e.chunk.js",
+    "static/css/main.c6aeefab.chunk.css",
+    "static/js/main.790066a5.chunk.js"
+  ]
+}

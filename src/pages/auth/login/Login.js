@@ -3,7 +3,7 @@ import {
   Button,
   Section,
   H1,
-  // Notification,
+  Notification,
 } from '../../../ui/UI';
 import { 
   Container,
@@ -11,9 +11,9 @@ import {
   Col,
   Form,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Login.css';
-// import { request, ContentTypes } from '../../../libs/request';
+import { request, ContentTypes } from '../../../libs/request';
 
 class Login extends Component {
   constructor(props) {
@@ -23,29 +23,42 @@ class Login extends Component {
       password: '',
       validated: false,
       formSent: false,
+      notification: {
+        status: false,
+        message: '',
+      },
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  /* async sendForm() {
+  async sendForm() {
 		const { 
-      firstname,
-      lastname,
+      email,
+      password,
     } = this.state;
 
 		const data = {
-      "firtname": firstname,
-      "lastname": lastname,
+      email,
+      password
     };
-    const endpoint = '/subscriptor';
+    const endpoint = '/user/auth';
 		try {
-			await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
-      this.setState({ subscriptionSent: true });
+			const resp = await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
+      console.log('successfully loged>>>>>>>>>>>>>>>> resp: ', resp);
+      if (resp.data.status===true) {
+        this.props.history.push('/dashboard');
+      }
+      this.setState({
+        notification: { 
+          status: true,
+          message: 'Usuario o contraseña incorrecta.'
+        }
+      });
 		} catch (err) {
 			// console.error(err);
 		}
-  }*/
+  }
 
   handleSubmit = (event) => {
 		event.preventDefault();
@@ -55,8 +68,7 @@ class Login extends Component {
 		if (form.checkValidity() === false) {
 			this.setState({ validated: true });
 		} else {
-      this.props.history.push('/dashboard');
-			//this.sendForm();
+			this.sendForm();
 		}
   }
 
@@ -68,7 +80,7 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, validated } = this.state;
+    const { email, password, validated, notification } = this.state;
     return (
       <Container fluid>
         <Section>
@@ -79,6 +91,15 @@ class Login extends Component {
                     <H1>Login</H1>
                   </Col>
                 </Row>
+                {(notification.status) ? (
+                  <Row>
+                    <Col>
+                      <Notification className='error'>
+                        {notification.message}
+                      </Notification>
+                    </Col>
+                  </Row>
+                ): null}
                 <Row>
                   <Col>
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
@@ -116,12 +137,6 @@ class Login extends Component {
                     </Form>
                   </Col>
                 </Row>
-                <Row>
-                  <Col>
-                    <Link to='/forgot-password'>Forgot Password?</Link>
-                  </Col>
-                </Row>
-
             </Col>
           </Row>
         </Section>

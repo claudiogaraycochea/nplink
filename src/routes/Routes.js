@@ -9,7 +9,7 @@ import Login from '../pages/auth/login/Login';
 import Terms from '../pages/terms/Terms';
 
 /* Private */
-import LinksOverview from '../pages/dashboard/links/overview/Overview';
+// import LinksOverview from '../pages/dashboard/links/overview/Overview';
 import CreateLink from '../pages/dashboard/links/createLink/CreateLink';
 import EditLink from '../pages/dashboard/links/editLink/EditLink';
 
@@ -28,19 +28,19 @@ export const routes = [
   {
     id: 2,
     exact: true,
-    path: '/dashboard/create-link',
+    path: '/dashboard',
     Component: CreateLink,
     Layout: FullLayout,
     Access: 'Public',
   },
-  {
+/*  {
     id: 2,
     exact: true,
     path: '/dashboard/',
     Component: LinksOverview,
     Layout: FullLayout,
     Access: 'Public',
-  },
+  },*/
   {
     id: 2,
     exact: true,

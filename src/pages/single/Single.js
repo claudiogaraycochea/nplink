@@ -113,7 +113,7 @@ class Single extends Component {
                     Mejora la atención a tus clientes
                   </div>
                   <div className={`hero-subtitle ${isVisible ? "slideUp enter s2" : "slideUp"}`}>
-                    Ofrece una mejor experiencia en la atención a tus clientes facil y rápido. 
+                    Ofrecer una mejor experiencia en la atención a tus clientes, es fácil y rápido. 
                     Simplemente incrusta el botón de NextPlay en tu website o landing page y 
                     podrás acceder a una serie de herramientas creadas para mejorar la 
                     experiencia de atención a tus clientes.
@@ -142,7 +142,7 @@ class Single extends Component {
                       </div>
                       <div className={isVisible ? "slideUp enter s2" : "slideUp"}>
                         Inserta el código por única vez en tu website o landing page, desde tu 
-                        panel de control elige las herramientas que consideres que brindan una 
+                        panel de control elige las herramientas que consideres más apropiadas para una 
                         mejor atención a tus clientes. Habilita en tu botón NextPlay contactos 
                         por Whatsapp, llamada, chat, video chat, menú y submenus de contactos, 
                         reservas pagas, compartir pantalla para soporte y mucho más.
@@ -174,8 +174,7 @@ class Single extends Component {
                   <Row className='center'>
                     <Col>
                       <Subtitle>
-                        Al incrustar el botón de NextPlay abrirá un recuadro con herramientas 
-                        de contactos, a continuación te mostramos algunos ejemplos...
+                        Desde NextPlay buscamos mejorar la experiencia de atención a tus clientes, te mostramos algunos ejemplos...
                       </Subtitle>
                     </Col>
                   </Row>
@@ -227,7 +226,7 @@ class Single extends Component {
                   <div className={`step-content ${isVisible ? "slideUp enter" : "slideUp"}`}>
                     <H2>3. Retorno de contacto fuera de horario</H2>
                     <p>
-                      Al momento en que el visitante consulta fuera de horario, captura su contacto telefónico.
+                      Al momento en que el visitante consulta fuera de horario, capturas su contacto telefónico.
                     </p>
                   </div>
                 )}
@@ -236,22 +235,32 @@ class Single extends Component {
           </Row>
         </Section>
         <Section className='center'>
-          <Row>
-            <Col>
-              <H2>Gestor de Atención al Cliente</H2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Subtitle>
-                A través de un sencillo panel de control podrás 
-                administrar la comunicación con tus clientes. 
-                Encontrarás estas y otras herramientas que se 
-                suman constantemente para mejorar la experiencia 
-                del usuario.
-              </Subtitle>
-            </Col>
-          </Row>
+          <VisibilitySensor>
+            {({ isVisible }) => (
+              <div>
+                <div className={isVisible ? "slideUp enter" : "slideUp"}>
+                  <Row>
+                    <Col>
+                      <H2>Gestor de Atención al Cliente</H2>
+                    </Col>
+                  </Row>
+                </div>
+                <div className={isVisible ? "slideUp enter s2" : "slideUp"}>
+                  <Row>
+                    <Col>
+                      <Subtitle>
+                        A través de un sencillo panel de control podrás 
+                        administrar la comunicación con tus clientes. 
+                        Encontrarás estas y otras herramientas que se 
+                        suman constantemente para mejorar la experiencia 
+                        del usuario.
+                      </Subtitle>
+                    </Col>
+                  </Row>
+                </div>
+              </div>
+            )}
+          </VisibilitySensor>
           <Row>
             <Col sx='12' lg='4'>
               <BoxIcon
@@ -415,7 +424,7 @@ class Single extends Component {
                 </div>
                 <div className='bottom'>
                   <a href='#signin'>
-                    <Button className='large'>Obtenlo Gratis</Button>
+                    <Button className='large'>Obtenlo Ahora</Button>
                   </a>
                 </div>
               </div>
@@ -431,8 +440,8 @@ class Single extends Component {
                   </p>
                 </div>
                 <div className='bottom'>
-                  <a href='#signin'>
-                    <Button className='large'>Obtenlo Gratis</Button>
+                  <a href='mailto:claudio@nextplay.link'>
+                    <Button className='large'>Contactar Experto</Button>
                   </a>
                 </div>
               </div>
@@ -465,11 +474,19 @@ class Single extends Component {
         </Section>
         <a id="signin" href='#no'> </a>
         <Section className='dark center'>
-          <Row>
+          {/*<Row>
             <Col>
               <H1>Obtenlo Gratis</H1>
               <p>
                 Solo para los primeros 1.000 usuarios registrados
+              </p>
+            </Col>
+          </Row>*/}
+          <Row>
+            <Col>
+              <H1>Obtenlo Gratis</H1>
+              <p>
+                Se uno de los primeros en utilizar la plataforma, apuntate y te enviaremos el acceso a la brevedad.
               </p>
             </Col>
           </Row>
@@ -629,7 +646,7 @@ class Single extends Component {
                 </Form>
               ) : (
                 <div>
-                  <Alert variant='success'>Tu cuenta se ha creado correctamente.</Alert>
+                  <Alert variant='success'>Tu cuenta se ha creado correctamente. En menos de 48hs estaremos enviando el acceso a tu panel de control. Muchas gracias!</Alert>
                 </div>
               )}
               </div>
