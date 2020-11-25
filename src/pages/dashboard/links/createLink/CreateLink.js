@@ -30,6 +30,40 @@ class CreateLink extends Component {
     this.handleBtnToggleChange = this.handleBtnToggleChange.bind(this);
   }
 
+  insertComma(result) {
+    if (result)
+      return `,`;
+    return '';
+  }
+
+  getNextPlayConfig() {
+    const {
+      link_whatsapp,
+      link_telephone,
+      link_email,
+      link_form,
+      link_website
+    } = this.state;
+
+    let result = '';
+    if (link_whatsapp) {
+      result += `whatsapp: "${link_whatsapp}"`;
+    }
+    if (link_telephone) {
+      result += `${this.insertComma(result)} telephone: "${link_telephone}"`;
+    }
+    if (link_email) {
+      result += `${this.insertComma(result)} telephone: "${link_email}"`;
+    }
+    if (link_form) {
+      result += `${this.insertComma(result)} form: "${link_form}"`;
+    }
+    if (link_website) {
+      result += `${this.insertComma(result)} website: "${link_website}"`;
+    }
+    return `{${result}}`;
+  }
+
   async sendSubscribe() {
 		const { 
       firstname,
@@ -83,7 +117,6 @@ class CreateLink extends Component {
       link_form,
       link_website,
       validated,
-      // deviceSelected,
     } = this.state;
     return (
       <Container fluid>
@@ -179,16 +212,7 @@ class CreateLink extends Component {
                 <Row>
                   <Col>
                     <pre>
-                  {`<script>
-  const nextplay_config = {
-    whatsapp: "${link_whatsapp}",
-    telephone: ${link_telephone},
-    email: "${link_email}",
-    form: "${link_form}",
-    website: "${link_website}"
-  };
-</script>
-<script async="" src="http://192.168.0.12:3000/nextplay/1.0.1/nextplay.js"></script>`}
+                      {`<script>\nconst nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
                     </pre>
                   </Col>
                 </Row>
