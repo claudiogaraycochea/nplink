@@ -39,7 +39,6 @@ class Single extends Component {
 		event.preventDefault();
 		event.stopPropagation();
     const form = event.currentTarget;
-    console.log('event: ', event);
 		if (form.checkValidity() === false) {
 			this.setState({ validated: true });
 		} else {
@@ -62,7 +61,7 @@ class Single extends Component {
 		const data = {
       "email": email,
       "password": password,
-      "firtname": firstname,
+      "firstname": firstname,
       "lastname": lastname,
       "city": city,
       "zip_code": zip_code,

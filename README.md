@@ -2,6 +2,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+    <script>
+      const nextplay_config = {
+        whatsapp: '5492236037922',
+        telephone: '1600000000',
+        email: 'info@contact.com',
+        form: 'https://192.168.0.12:3000/contact',
+        website: 'http://192.168.0.12:3000',
+      };
+    </script>
+    <script async="" src="http://192.168.0.12:3000/nextplay/1.0.1/nextplay.js"></script>
+
 In the project directory, you can run:
 
 ### `yarn start`

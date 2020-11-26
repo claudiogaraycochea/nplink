@@ -45,8 +45,11 @@ class Login extends Component {
     const endpoint = '/user/auth';
 		try {
 			const resp = await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
-      console.log('successfully loged>>>>>>>>>>>>>>>> resp: ', resp);
       if (resp.data.status===true) {
+        const { firstname, lastname, id } = resp.data.data;
+        localStorage.setItem('firstname', firstname);
+        localStorage.setItem('lastname', lastname);
+        localStorage.setItem('token', id);
         this.props.history.push('/dashboard');
       }
       this.setState({

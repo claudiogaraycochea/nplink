@@ -47,21 +47,21 @@ class CreateLink extends Component {
 
     let result = '';
     if (link_whatsapp) {
-      result += `whatsapp: "${link_whatsapp}"`;
+      result += `\n    whatsapp: "${link_whatsapp}"`;
     }
     if (link_telephone) {
-      result += `${this.insertComma(result)} telephone: "${link_telephone}"`;
+      result += `${this.insertComma(result)} \n    telephone: "${link_telephone}"`;
     }
     if (link_email) {
-      result += `${this.insertComma(result)} telephone: "${link_email}"`;
+      result += `${this.insertComma(result)} \n    email: "${link_email}"`;
     }
     if (link_form) {
-      result += `${this.insertComma(result)} form: "${link_form}"`;
+      result += `${this.insertComma(result)} \n    form: "${link_form}"`;
     }
     if (link_website) {
-      result += `${this.insertComma(result)} website: "${link_website}"`;
+      result += `${this.insertComma(result)} \n    website: "${link_website}"`;
     }
-    return `{${result}}`;
+    return `{${result}\n  }`;
   }
 
   async sendSubscribe() {
@@ -134,7 +134,7 @@ class CreateLink extends Component {
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Whatsapp</Form.Label>
+                          <Form.Label>Whatsapp (Recomendado)</Form.Label>
                           <Form.Control
                             type='text'
                             placeholder='3490000000'
@@ -186,7 +186,7 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>URL de tu website</Form.Label>
+                          <Form.Label>URL de tu website (obligatorio)</Form.Label>
                           <Form.Control
                             type='text'
                             placeholder='https://example.com'
@@ -206,13 +206,13 @@ class CreateLink extends Component {
               <div>
                 <Row>
                   <Col>
-                    Para activar el boton NextPlay, copia y pega el siguiente codigo antes de finalizar la etiqueta body.
+                    Para activar el botón NextPlay en tu sitio web copia y pega el siguiente código antes de finalizar la etiqueta &lt;/body&gt;.
                   </Col>
                 </Row>
                 <Row>
                   <Col>
                     <pre>
-                      {`<script>\nconst nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
+                      {`<script>\n  const nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
                     </pre>
                   </Col>
                 </Row>
