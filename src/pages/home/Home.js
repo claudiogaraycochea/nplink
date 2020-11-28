@@ -36,7 +36,6 @@ class Home extends Component {
 		event.preventDefault();
 		event.stopPropagation();
     const form = event.currentTarget;
-    console.log('event: ', event);
 		if (form.checkValidity() === false) {
 			this.setState({ validated: true });
 		} else {
@@ -242,21 +241,21 @@ class Home extends Component {
               <BoxIcon
                 icon='chat'
               >
-                Atención por Chat              
+                Atención por Chat
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='video-chat'
               >
-                Atención por Video Chat              
+                Atención por Video Chat
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='booking'
               >
-                Pagos y Reservas Online                
+                Pagos y Reservas Online
               </BoxIcon>
             </Col>
           </Row>
@@ -265,21 +264,21 @@ class Home extends Component {
               <BoxIcon
                 icon='statistics'
               >
-                Sistema de estadísticas               
+                Sistema de estadísticas
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='rating'
               >
-                Puntuación de atención               
+                Puntuación de atención
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='phone-book'
               >
-                Captura de teléfonos                 
+                Captura de teléfonos
               </BoxIcon>
             </Col>
           </Row>
@@ -295,14 +294,14 @@ class Home extends Component {
               <BoxIcon
                 icon='referrer'
               >
-                URLs de Procedencia               
+                URLs de Procedencia
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='follow'
               >
-                Seguimientos de atención               
+                Seguimientos de atención
               </BoxIcon>
             </Col>
           </Row>

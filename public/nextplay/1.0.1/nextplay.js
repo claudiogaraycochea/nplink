@@ -10,8 +10,7 @@ const nextplay = {
     nextplay.openCSS();
     nextplay.buildContent();
     if(nextplay.config.device === 'desktop') {
-      nextplay.openJS('http://192.168.0.12:3000/nextplay/1.0.1/qrcode.js');
-      // nextplay.openJS('https://nextplay.link/nextplay/1.0.1/qrcode.js');      
+      nextplay.openJS('https://nextplay.link/nextplay/1.0.1/qrcode.js');      
     }
   },
 
@@ -31,8 +30,7 @@ const nextplay = {
     // set the attributes for link element 
     link.rel = 'stylesheet';  
     link.type = 'text/css'; 
-    link.href = 'http://192.168.0.12:3000/nextplay/1.0.1/nextplay.css';  
-    // link.href = 'https://nextplay.link/nextplay/1.0.1/nextplay.css';  
+    link.href = 'https://nextplay.link/nextplay/1.0.1/nextplay.css';  
 
     // Get HTML head element to append  
     // link element to it  
@@ -67,28 +65,43 @@ const nextplay = {
         <div class='nextplay-footer'><a href='https://nextplay.link'>NextPlay.Link</a></div> \
       </div>";      
     } else {
-      div.innerHTML = "<div id='nextplay-content' class='nextplay-content fade-in'> \
-        <div class='nextplay-row'>Contáctanos</div> \
-        <div class='nextplay-row'> \
+      let buttons_content = '';
+
+      if (whatsapp) {
+        buttons_content += "<div class='nextplay-row'> \
           <a href='https://wa.me/"+whatsapp+"'> \
             <button class='nextplay-btn-whatsapp'>Enviar Whatsapp</button> \
           </a> \
-        </div> \
-        <div class='nextplay-row'> \
+        </div>";        
+      }
+
+      if (telephone) {
+        buttons_content += "<div class='nextplay-row'> \
           <a href='tel:"+telephone+"'> \
             <button class='nextplay-btn-call-now'>Llamar ahora</button> \
           </a> \
-        </div> \
-        <div class='nextplay-row'> \
+        </div>";
+      }
+      
+      if (email) {
+        buttons_content += "<div class='nextplay-row'> \
           <a href='"+email+"'> \
             <button class='nextplay-btn-call-now'>"+email+" [Copy]</button> \
           </a> \
-        </div> \
-        <div class='nextplay-row'> \
+        </div>";
+      }
+
+      if (form) {
+        buttons_content += "<div class='nextplay-row'> \
           <a href='"+form+"'> \
             <button class='nextplay-btn-call-now'>Formulario de contacto</button> \
           </a> \
-        </div> \
+        </div>";
+      }
+
+      div.innerHTML = "<div id='nextplay-content' class='nextplay-content fade-in'> \
+        <div class='nextplay-row'>Contáctanos</div> \
+        <div>"+buttons_content+"</div> \
         <div class='nextplay-footer'><a href='https://nextplay.link'>NextPlay.Link</a></div> \
       </div>";
     }
