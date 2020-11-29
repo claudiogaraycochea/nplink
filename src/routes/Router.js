@@ -8,13 +8,10 @@ import { routes } from './Routes';
 import ScrollToTop from './ScrollTop';
 
 const isAuthenticated = () => {
-	/*
 	if (localStorage.getItem('id')) {
 		return true;
 	}
 	return false;
-	*/
-	return true;
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => (

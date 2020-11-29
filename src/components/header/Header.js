@@ -1,39 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link, withRouter } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
-  // const [scrolling, setScrolling] = useState(false);
-  const [scrollTop, setScrollTop] = useState(0);
-
-  useEffect(() => {
-    const onScroll = e => {
-      setScrollTop(e.target.documentElement.scrollTop);
-      // setScrolling(e.target.documentElement.scrollTop > scrollTop);
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    const id = localStorage.getItem('token');
+		this.state = {
+      user: {
+        id
+      },
     };
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollTop]);
-
-  const user = {
-    id: localStorage.getItem('token')
   }
 
-  return (
-    <header className={!(scrollTop>0) ? 'top': ''}>
-      <div className='nav-logo'/>
-      {(user.id) ? (
-        <Link to='/log-out' className='btn-login'>
-          Log out
-        </Link>
-      ) : (
-        <Link to='/login' className='btn-login'>
-          Login
-        </Link>
-      )}
-    </header>
-  );
+  componentDidMount() {
+    const id = localStorage.getItem('token');
+    const { url } = this.props.match;
+    if ((url.toLowerCase().indexOf('dashboard') !== -1) && (id === null)) {
+      this.props.history.push('/'); 
+    }
+  }
+
+  render() {
+    const { user } = this.state;
+    const scrollTop = 0;
+    return (
+      <header className={!(scrollTop>0) ? 'top': ''}>
+        <div className='nav-logo'/>
+        {(user.id) ? (
+          <Link to='/log-out' className='btn-login'>
+            Log out
+          </Link>
+        ) : (
+          <Link to='/login' className='btn-login'>
+            Login
+          </Link>
+        )}
+      </header>
+    );    
+  }
 };
 
-export default Header;
+export default withRouter(Header);
