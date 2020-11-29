@@ -6,6 +6,7 @@ import Single from '../pages/single/Single';
 
 import SignIn from '../pages/auth/singIn/SignIn';
 import Login from '../pages/auth/login/Login';
+import LogOut from '../pages/auth/logOut/LogOut';
 import Terms from '../pages/terms/Terms';
 
 /* Private */
@@ -46,6 +47,14 @@ export const routes = [
     exact: true,
     path: '/sign-in',
     Component: SignIn,
+    Layout: FullLayout,
+    Access: 'Public',
+  },
+  {
+    id: 5,
+    exact: true,
+    path: '/log-out',
+    Component: LogOut,
     Layout: FullLayout,
     Access: 'Public',
   },
