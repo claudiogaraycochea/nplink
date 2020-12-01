@@ -29,11 +29,11 @@ class Header extends Component {
         <div className='nav-logo'/>
         {(user.id) ? (
           <Link to='/log-out' className='btn-login'>
-            Log out
+            Cerrar sesión
           </Link>
         ) : (
           <Link to='/login' className='btn-login'>
-            Login
+            Iniciar sesión
           </Link>
         )}
       </header>

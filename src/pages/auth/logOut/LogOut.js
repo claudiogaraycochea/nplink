@@ -36,7 +36,7 @@ class LogOut extends Component {
             <Col xs={12} lg={6} className='center-middle'>
                 <Row>
                   <Col>
-                    <H1>Log out</H1>
+                    <H1>Cerrar sesión</H1>
                   </Col>
                 </Row>
                 <Row>

@@ -211,9 +211,11 @@ class CreateLink extends Component {
                 </Row>
                 <Row>
                   <Col>
-                    <pre>
-                      {`<script>\n  const nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
-                    </pre>
+                    <div>
+                      <pre className='pre-wrapper'>
+                        {`<script>\n  const nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
+                      </pre>
+                    </div>
                   </Col>
                 </Row>
               </div>
