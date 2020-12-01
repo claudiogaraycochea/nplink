@@ -121,7 +121,7 @@ class Login extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Password</Form.Label>
+                          <Form.Label>Contraseña</Form.Label>
                           <Form.Control
                             type='password'
                             placeholder=''
@@ -134,7 +134,7 @@ class Login extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Col>
-                          <Button className='secondary' type='submit'>Accept</Button>
+                          <Button className='secondary' type='submit'>Aceptar</Button>
                         </Col>
                       </Form.Row>
                     </Form>

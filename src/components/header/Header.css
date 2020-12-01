@@ -15,11 +15,6 @@ header {
   justify-content: space-between;
 }
 
-header.top {
-  background-color: transparent;
-  box-shadow: none;
-}
-
 .nav-logo {
 	background-image: url(../../assets/images/logo.svg);
   background-position: center;
