@@ -9,7 +9,6 @@ import {
 import { Container, Row, Col, Form, Alert } from 'react-bootstrap';
 import { request, ContentTypes } from '../../libs/request';
 import countries from '../../store/statics/Countries';
-import { Link } from 'react-router-dom';
 import './Home.css';
 
 class Home extends Component {
@@ -37,7 +36,6 @@ class Home extends Component {
 		event.preventDefault();
 		event.stopPropagation();
     const form = event.currentTarget;
-    console.log('event: ', event);
 		if (form.checkValidity() === false) {
 			this.setState({ validated: true });
 		} else {
@@ -54,7 +52,6 @@ class Home extends Component {
       zip_code,
       state,
       country,
-      course_type
     } = this.state;
 
 		const data = {
@@ -94,7 +91,6 @@ class Home extends Component {
       country,
       email,
       repeat_email,
-      course_type,
       validated,
       subscriptionSent,
     } = this.state;
@@ -118,6 +114,8 @@ class Home extends Component {
                   desktop a móvil, Whatsapp, llamadas, menú de contactos, 
                   chat, video chat, pagos y reservas para atención 
                   online/presencial y más de lo que tu empresa necesita.
+                  Desde tu panel de control puedes configurar el botón de 
+                  NextPlay en uno o múltiples canales de atención al cliente.
                 </p>
                 <p>
                   <a href='#signin'>
@@ -144,13 +142,11 @@ class Home extends Component {
           <Row className='center'>
             <Col>
               <Subtitle>
-                Queremos que puedas brindar una experiencia completa 
-                de atención a tus clientes, de la manera más sencilla y 
-                rápida. Simplemente incrusta el botón de NextPlay 
-                en tu website o landing page y podrás acceder a una 
-                serie de herramientas creadas para 
-                que puedas ofrecer la mejor atención 
-                a tus clientes.
+                Ofrecer una experiencia completa en la atención a tus clientes, 
+                es sencillo y rápido. 
+                Simplemente incrusta el botón de NextPlay en tu website o 
+                landing page y podrás acceder a una serie de herramientas 
+                creadas para brindar la mejor atención a tus clientes.
               </Subtitle>
             </Col>
           </Row>
@@ -174,7 +170,7 @@ class Home extends Component {
           <Row>
             <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1 }}>
               <div className='step-content'>
-                <H2>2. Contacto simple desde movil</H2>
+                <H2>2. Contacto simple desde móvil</H2>
                 <p>
                   En este dispositivo el logo de NextPlay se convierte 
                   en un botón de llamada instantánea, al hacer clic 
@@ -245,21 +241,21 @@ class Home extends Component {
               <BoxIcon
                 icon='chat'
               >
-                Atención por Chat              
+                Atención por Chat
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='video-chat'
               >
-                Atención por Video Chat              
+                Atención por Video Chat
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='booking'
               >
-                Pagos y Reservas Online                
+                Pagos y Reservas Online
               </BoxIcon>
             </Col>
           </Row>
@@ -268,21 +264,21 @@ class Home extends Component {
               <BoxIcon
                 icon='statistics'
               >
-                Sistema de estadísticas               
+                Sistema de estadísticas
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='rating'
               >
-                Puntuación de atención               
+                Puntuación de atención
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='phone-book'
               >
-                Captura de teléfonos                 
+                Captura de teléfonos
               </BoxIcon>
             </Col>
           </Row>
@@ -298,14 +294,14 @@ class Home extends Component {
               <BoxIcon
                 icon='referrer'
               >
-                URLs de Procedencia               
+                URLs de Procedencia
               </BoxIcon>
             </Col>
             <Col sx='12' lg='4'>
               <BoxIcon
                 icon='follow'
               >
-                Seguimientos de atención               
+                Seguimientos de atención
               </BoxIcon>
             </Col>
           </Row>
@@ -334,7 +330,7 @@ class Home extends Component {
             </Col>
           </Row>
         </Section>
-        <a id="signin" />
+        <a id="signin" href='#no'> </a>
         <Section className='dark center'>
           <Row>
             <Col>

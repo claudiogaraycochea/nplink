@@ -618,8 +618,8 @@ var QRCode;
 })();
 
 var qrcode = new QRCode(document.getElementById("qrcode"), {
-	width : 100,
-	height : 100
+	width : 120,
+	height : 120
 });
 
 qrcode.makeCode(nextplay_config.website+'?np=1');

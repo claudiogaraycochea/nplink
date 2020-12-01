@@ -1,6 +1,5 @@
 import React, { Component }from "react";
 import {
-  Button,
   Section,
   H1,
 } from '../../../../ui/UI';
@@ -10,19 +9,18 @@ import {
   Col,
   Form,
 } from 'react-bootstrap';
-import Toggle from 'react-toggle';
 import './CreateLink.css';
 import { request, ContentTypes } from '../../../../libs/request';
-import ButtonNextPlay from '../../../../components/buttonNextPlay/ButtonNextPlay';
 
 class CreateLink extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-      title: 'Contáctanos',
-      description: 'Llamanos de lunes a viernes de 10hs a 20hs.',
-      firstname: '',
-      lastname: '',
+      link_whatsapp: '',
+      link_telephone: '',
+      link_email: '',
+      link_form: '',
+      link_website: '',
       validated: false,
       formSent: false,
       deviceSelected: 'desktop',
@@ -30,6 +28,40 @@ class CreateLink extends Component {
 		this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBtnToggleChange = this.handleBtnToggleChange.bind(this);
+  }
+
+  insertComma(result) {
+    if (result)
+      return `,`;
+    return '';
+  }
+
+  getNextPlayConfig() {
+    const {
+      link_whatsapp,
+      link_telephone,
+      link_email,
+      link_form,
+      link_website
+    } = this.state;
+
+    let result = '';
+    if (link_whatsapp) {
+      result += `\n    whatsapp: "${link_whatsapp}"`;
+    }
+    if (link_telephone) {
+      result += `${this.insertComma(result)} \n    telephone: "${link_telephone}"`;
+    }
+    if (link_email) {
+      result += `${this.insertComma(result)} \n    email: "${link_email}"`;
+    }
+    if (link_form) {
+      result += `${this.insertComma(result)} \n    form: "${link_form}"`;
+    }
+    if (link_website) {
+      result += `${this.insertComma(result)} \n    website: "${link_website}"`;
+    }
+    return `{${result}\n  }`;
   }
 
   async sendSubscribe() {
@@ -79,21 +111,22 @@ class CreateLink extends Component {
 
   render() {
     const {
-      title,
-      description,
-      firstname,
+      link_whatsapp,
+      link_telephone,
+      link_email,
+      link_form,
+      link_website,
       validated,
-      deviceSelected,
     } = this.state;
     return (
       <Container fluid>
         <Section className='main-wrapper'>
           <Row>
-            <Col xs={12} lg={7}>
+            <Col xs={12} lg={6}>
               <div className='content'>
                 <Row>
                   <Col>
-                    <H1>Create Link</H1>
+                    <H1>Crear botón</H1>
                   </Col>
                 </Row>
                 <Row>
@@ -101,12 +134,12 @@ class CreateLink extends Component {
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Link Name</Form.Label>
+                          <Form.Label>Whatsapp (Recomendado)</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder=''
-                            name='firstname'
-                            value={firstname}
+                            placeholder='3490000000'
+                            name='link_whatsapp'
+                            value={link_whatsapp}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -114,12 +147,12 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Title</Form.Label>
+                          <Form.Label>Teléfono</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder=''
-                            name='title'
-                            value={title}
+                            placeholder='3490000000'
+                            name='link_telephone'
+                            value={link_telephone}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -127,12 +160,12 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Description</Form.Label>
+                          <Form.Label>Email</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder=''
-                            name='description'
-                            value={description}
+                            placeholder='info@example.com'
+                            name='link_email'
+                            value={link_email}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -140,12 +173,12 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Whatsapp</Form.Label>
+                          <Form.Label>URL de formulario en tu website</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder=''
-                            name='firstname'
-                            value={firstname}
+                            placeholder='https://example.com/contacto'
+                            name='link_form'
+                            value={link_form}
                             required
                             onChange={this.handleInputChange}
                           />
@@ -153,82 +186,42 @@ class CreateLink extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Telephone</Form.Label>
+                          <Form.Label>URL de tu website (obligatorio)</Form.Label>
                           <Form.Control
                             type='text'
-                            placeholder=''
-                            name='firstname'
-                            value={firstname}
+                            placeholder='https://example.com'
+                            name='link_website'
+                            value={link_website}
                             required
                             onChange={this.handleInputChange}
                           />
                         </Form.Group>
-                      </Form.Row>
-                      <Form.Row>
-                        <Form.Label>How look in?</Form.Label>
-                        <Form.Group as={Col} className='d-flex align-items-center'>
-                          <div className='device-selector-wrapper'>
-                            <div className='item'>
-                              Desktop
-                            </div>
-                            <div className='item'>
-                              <Toggle
-                                defaultChecked={(deviceSelected==='mobile') ? true : false}
-                                icons={false}
-                                onChange={this.handleBtnToggleChange}
-                              />
-                            </div>
-                            <div className='item'>
-                              Mobile
-                            </div>
-                          </div>
-                        </Form.Group>
-                      </Form.Row>
-                      <Form.Row>
-                        <Col>
-                          <Button className='secondary' type='submit'>Accept</Button>
-                        </Col>
                       </Form.Row>
                     </Form>
                   </Col>
                 </Row>
               </div>
             </Col>
-            <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
-              <div className='mobile-preview'>
-                <div className='mobile-preview-content'>
-                  <Row>
-                    <Col>
-                      <div className='title'>{title}</div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      {description}
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Button
-                        className='primary large'
-                      >Whatsapp</Button>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Button 
-                        className='secondary large'
-                      >
-                        Call Now
-                      </Button>
-                    </Col>
-                  </Row>                  
-                </div>
+            <Col xs={12} lg={6} className='d-flex flex-column align-items-center justify-content-center'>
+              <div>
+                <Row>
+                  <Col>
+                    Para activar el botón NextPlay en tu sitio web copia y pega el siguiente código antes de finalizar la etiqueta &lt;/body&gt;.
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <div>
+                      <pre className='pre-wrapper'>
+                        {`<script>\n  const nextplay_config = ${this.getNextPlayConfig()}\n</script>\n<script src="https://nextplay.link/nextplay/1.0.1/nextplay.js"></script>`}
+                      </pre>
+                    </div>
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
         </Section>
-        <ButtonNextPlay device={deviceSelected} />
       </Container>
     );
   }

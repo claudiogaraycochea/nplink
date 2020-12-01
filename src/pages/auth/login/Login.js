@@ -1,9 +1,9 @@
-import React, { Component }from "react";
+import React, { Component } from "react";
 import {
   Button,
   Section,
   H1,
-  // Notification,
+  Notification,
 } from '../../../ui/UI';
 import { 
   Container,
@@ -11,9 +11,9 @@ import {
   Col,
   Form,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Login.css';
-// import { request, ContentTypes } from '../../../libs/request';
+import { request, ContentTypes } from '../../../libs/request';
 
 class Login extends Component {
   constructor(props) {
@@ -23,29 +23,45 @@ class Login extends Component {
       password: '',
       validated: false,
       formSent: false,
+      notification: {
+        status: false,
+        message: '',
+      },
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  /* async sendForm() {
+  async sendForm() {
 		const { 
-      firstname,
-      lastname,
+      email,
+      password,
     } = this.state;
 
 		const data = {
-      "firtname": firstname,
-      "lastname": lastname,
+      email,
+      password
     };
-    const endpoint = '/subscriptor';
+    const endpoint = '/user/auth';
 		try {
-			await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
-      this.setState({ subscriptionSent: true });
+			const resp = await request('POST', endpoint, data, { 'content-type': ContentTypes.json });
+      if (resp.data.status===true) {
+        const { firstname, lastname, id } = resp.data.data;
+        localStorage.setItem('firstname', firstname);
+        localStorage.setItem('lastname', lastname);
+        localStorage.setItem('token', id);
+        this.props.history.push('/dashboard');
+      }
+      this.setState({
+        notification: { 
+          status: true,
+          message: 'Usuario o contraseña incorrecta.'
+        }
+      });
 		} catch (err) {
 			// console.error(err);
 		}
-  }*/
+  }
 
   handleSubmit = (event) => {
 		event.preventDefault();
@@ -55,8 +71,7 @@ class Login extends Component {
 		if (form.checkValidity() === false) {
 			this.setState({ validated: true });
 		} else {
-      this.props.history.push('/dashboard');
-			//this.sendForm();
+			this.sendForm();
 		}
   }
 
@@ -68,18 +83,26 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, validated } = this.state;
+    const { email, password, validated, notification } = this.state;
     return (
       <Container fluid>
-        <Section className='main-wrapper'>
+        <Section>
           <Row>
-            <Col xs={12} lg={7}>
-              <div className='content'>
+            <Col xs={12} lg={6} className='center-middle'>
                 <Row>
                   <Col>
                     <H1>Login</H1>
                   </Col>
                 </Row>
+                {(notification.status) ? (
+                  <Row>
+                    <Col>
+                      <Notification className='error'>
+                        {notification.message}
+                      </Notification>
+                    </Col>
+                  </Row>
+                ): null}
                 <Row>
                   <Col>
                     <Form noValidate validated={validated} onSubmit={(event) => this.handleSubmit(event)}>
@@ -98,7 +121,7 @@ class Login extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Form.Group as={Col}>
-                          <Form.Label>Password</Form.Label>
+                          <Form.Label>Contraseña</Form.Label>
                           <Form.Control
                             type='password'
                             placeholder=''
@@ -111,21 +134,12 @@ class Login extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Col>
-                          <Button className='secondary' type='submit'>Accept</Button>
+                          <Button className='secondary' type='submit'>Aceptar</Button>
                         </Col>
                       </Form.Row>
                     </Form>
                   </Col>
                 </Row>
-                <Row>
-                  <Col>
-                    <Link to='/forgot-password'>Forgot Password?</Link>
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-            <Col xs={12} lg={5} className='d-flex flex-column align-items-center justify-content-center'>
-              <i className='image-hero-home'/>
             </Col>
           </Row>
         </Section>

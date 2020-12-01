@@ -157,7 +157,7 @@ class SignIn extends Component {
                       </Form.Row>
                       <Form.Row>
                         <Col>
-                          <Button className='secondary' type='submit'>Accept</Button>
+                          <Button className='secondary' type='submit'>Aceptar</Button>
                         </Col>
                       </Form.Row>
                     </Form>

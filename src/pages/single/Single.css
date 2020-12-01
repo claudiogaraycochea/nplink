@@ -1,0 +1,220 @@
+.image-hero-home {
+  display: block;
+  height: 160px;
+  width: 100%;
+  background-image: url('../../assets/images/image-hero-home.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-1 {
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-1.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-2 {
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-2.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-3 {
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-3.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.image-step-4 {
+  display: block;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/images/image-step-4.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.step-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+}
+
+.check-terms {
+  display: flex;
+  font-size: 14px;
+}
+
+.box-price-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-price {
+  background-color: #52bfff;
+  color: #ffffff;
+  padding: 40px 40px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.box-price.blue {
+  background-color: #0F8DFF;
+}
+
+.box-price.dark {
+  background-color: #410C6B;
+}
+
+.box-price .header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 120px;
+}
+
+.box-price .content {
+  display: flex;
+  justify-content: center;
+}
+
+.box-price .bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.box-price h2, .box-price h3 {
+  color: #ffffff;
+}
+
+.fadeIn {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.fadeIn.enter {
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+
+.slideLeft {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.slideLeft.enter {
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideRight {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.slideRight.enter {
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slideUp {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.slideUp.enter {
+  transition: opacity .5s ease-in-out, transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slideUp.enter.s2 {
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slideUp.enter.s3 {
+  transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (print), (prefers-reduced-motion: reduce) {
+  .fadeIn,
+  .slideLeft,
+  .slideUp {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .social-wrapper .social-item .btn {
+    min-width: 100% !important;
+  }
+
+  .image-brain-check {
+    height: 75vh;
+    background-position: center;
+  }
+
+  .image-step-1, .image-step-2, .image-step-3 {
+    height: 400px;
+  }
+
+  .image-assimilation, .image-neoassimilation {
+    height: 250px;
+  }
+
+  .bubble-wrapper {
+    border-radius: 140px;
+  }
+
+  .bubble-wrapper .content {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .box-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .image-hero-home {
+    height: 90vh;
+  }
+
+  .step-content {
+    text-align: left;
+  }
+
+}
